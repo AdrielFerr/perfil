@@ -7,7 +7,7 @@
 -- O container importa este arquivo na primeira subida, logo depois do
 -- database.sql. Rodar de novo nao duplica nada: cada carta e apagada
 -- pelo qid antes de ser inserida.
--- Cartas neste arquivo: 95
+-- Cartas neste arquivo: 135
 -- ---------------------------------------------------------------------
 
 SET NAMES utf8mb4;
@@ -36,6 +36,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'O Monte Pascoal foi avistado.', 'o monte pascoal foi avistado', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'O Tratado de Tordesilhas tinha seis anos.', 'o tratado de tordesilhas tinha seis anos', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'O pau-brasil logo virou alvo de exploração.', 'o pau brasil logo virou alvo de exploracao', 'media', 'manual');
+
+-- 1808 (ano)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = '1808';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '1808', '1808', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'A Gazeta do Rio de Janeiro foi publicada.', 'a gazeta do rio de janeiro foi publicada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Os Estados Unidos proibiram a importação de escravizados.', 'os estados unidos proibiram a importacao de escravizados', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Salvador ganhou uma escola de cirurgia.', 'salvador ganhou uma escola de cirurgia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'O Rio virou sede do império português.', 'o rio virou sede do imperio portugues', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'A Imprensa Régia começou a funcionar.', 'a imprensa regia comecou a funcionar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Nasceu Napoleão III.', 'nasceu napoleao iii', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Goethe publicou a primeira parte de Fausto.', 'goethe publicou a primeira parte de fausto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Beethoven estreou sua Quinta Sinfonia.', 'beethoven estreou sua quinta sinfonia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'A corte portuguesa fugiu de Napoleão.', 'a corte portuguesa fugiu de napoleao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Dom João era príncipe regente.', 'dom joao era principe regente', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Sou do século 19.', 'sou do seculo 19', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'A família real chegou ao Brasil.', 'a familia real chegou ao brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'O Banco do Brasil foi criado.', 'o banco do brasil foi criado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Milhares de pessoas atravessaram o oceano.', 'milhares de pessoas atravessaram o oceano', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'O navio chegou primeiro a Salvador.', 'o navio chegou primeiro a salvador', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'A corte chegou ao Rio em março.', 'a corte chegou ao rio em marco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'O Jardim Botânico do Rio foi criado.', 'o jardim botanico do rio foi criado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Os portos foram abertos às nações amigas.', 'os portos foram abertos as nacoes amigas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Carlota Joaquina veio junto.', 'carlota joaquina veio junto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Napoleão invadiu a Espanha.', 'napoleao invadiu a espanha', 'media', 'manual');
 
 -- 1822 (ano)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = '1822';
@@ -111,6 +136,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'A lei foi assinada em 13 de maio.', 'a lei foi assinada em 13 de maio', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Nasceu Fernando Pessoa.', 'nasceu fernando pessoa', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Dunlop patenteou o pneu com ar.', 'dunlop patenteou o pneu com ar', 'media', 'manual');
+
+-- 1889 (ano)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = '1889';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '1889', '1889', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Foi o último baile do Império.', 'foi o ultimo baile do imperio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'A Torre Eiffel foi inaugurada.', 'a torre eiffel foi inaugurada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'O país virou Estados Unidos do Brasil.', 'o pais virou estados unidos do brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Van Gogh pintou A Noite Estrelada.', 'van gogh pintou a noite estrelada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'O Moulin Rouge foi inaugurado.', 'o moulin rouge foi inaugurado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'A bandeira ganhou Ordem e Progresso.', 'a bandeira ganhou ordem e progresso', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Dom Pedro II foi exilado.', 'dom pedro ii foi exilado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Sou do século 19.', 'sou do seculo 19', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Deodoro da Fonseca liderou o movimento.', 'deodoro da fonseca liderou o movimento', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Aconteceu em 15 de novembro.', 'aconteceu em 15 de novembro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Um ano antes, a escravidão foi abolida.', 'um ano antes a escravidao foi abolida', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Nasceu Charles Chaplin.', 'nasceu charles chaplin', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'O Baile da Ilha Fiscal aconteceu no Rio.', 'o baile da ilha fiscal aconteceu no rio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Nasceu Adolf Hitler.', 'nasceu adolf hitler', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'A monarquia acabou no Brasil.', 'a monarquia acabou no brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'O Wall Street Journal foi fundado.', 'o wall street journal foi fundado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'A República foi proclamada.', 'a republica foi proclamada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Paris recebeu uma Exposição Universal.', 'paris recebeu uma exposicao universal', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'A Nintendo foi fundada.', 'a nintendo foi fundada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'A imperatriz Teresa Cristina morreu no exílio.', 'a imperatriz teresa cristina morreu no exilio', 'media', 'manual');
 
 -- 1890 (ano)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = '1890';
@@ -237,6 +287,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Tive doze meses, como todo mundo.', 'tive doze meses como todo mundo', 'dificil', 'generica_5');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Nasceu gente famosa em mim: Günter Grass.', 'nasceu gente famosa em mim gunter grass', 'media', 'nascimentos_2');
 
+-- 1930 (ano)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = '1930';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '1930', '1930', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Júlio Prestes foi eleito, mas não assumiu.', 'julio prestes foi eleito mas nao assumiu', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'A bandeira da Paraíba ganhou a palavra NEGO.', 'a bandeira da paraiba ganhou a palavra nego', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'A Copa foi no Uruguai.', 'a copa foi no uruguai', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Gandhi fez a Marcha do Sal.', 'gandhi fez a marcha do sal', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Nasceu Neil Armstrong.', 'nasceu neil armstrong', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Plutão foi descoberto.', 'plutao foi descoberto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Aconteceu a primeira Copa do Mundo.', 'aconteceu a primeira copa do mundo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'O Uruguai foi campeão.', 'o uruguai foi campeao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Getúlio Vargas chegou ao poder.', 'getulio vargas chegou ao poder', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Foi criado o Ministério da Educação e Saúde.', 'foi criado o ministerio da educacao e saude', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Sou do século 20.', 'sou do seculo 20', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'O mundo vivia a crise após a quebra da bolsa.', 'o mundo vivia a crise apos a quebra da bolsa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'João Pessoa foi assassinado em Recife.', 'joao pessoa foi assassinado em recife', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'A capital da Paraíba ganhou o nome dele depois disso.', 'a capital da paraiba ganhou o nome dele depois disso', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Começou a Era Vargas.', 'comecou a era vargas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Washington Luís foi deposto.', 'washington luis foi deposto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Acabou a República Velha.', 'acabou a republica velha', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Betty Boop estreou.', 'betty boop estreou', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Nasceu Sean Connery.', 'nasceu sean connery', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Estourou uma revolução no Brasil.', 'estourou uma revolucao no brasil', 'media', 'manual');
+
 -- 1933 (ano)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = '1933';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '1933', '1933', 'https://pt.wikipedia.org/wiki/1933', NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
@@ -287,6 +362,81 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Hiroshima sofreu uma bomba atômica.', 'hiroshima sofreu uma bomba atomica', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Aconteceu a Conferência de Yalta.', 'aconteceu a conferencia de yalta', 'media', 'manual');
 
+-- 1950 (ano)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = '1950';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '1950', '1950', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'O Uruguai venceu no Maracanã.', 'o uruguai venceu no maracana', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'A tirinha Peanuts estreou.', 'a tirinha peanuts estreou', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Aconteceu o primeiro GP de Fórmula 1 mundial.', 'aconteceu o primeiro gp de formula 1 mundial', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'O Brasil sediou a Copa do Mundo.', 'o brasil sediou a copa do mundo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'O Brasil precisava só de um empate na final.', 'o brasil precisava so de um empate na final', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'O Maracanã foi inaugurado.', 'o maracana foi inaugurado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'A China invadiu o Tibete.', 'a china invadiu o tibete', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'A derrota ficou conhecida como Maracanazo.', 'a derrota ficou conhecida como maracanazo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'A Disney lançou Cinderela.', 'a disney lancou cinderela', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Ghiggia fez o gol da virada.', 'ghiggia fez o gol da virada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'A TV Tupi foi inaugurada.', 'a tv tupi foi inaugurada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Surgiu o primeiro cartão de crédito, o Diners Club.', 'surgiu o primeiro cartao de credito o diners club', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Sou do século 20.', 'sou do seculo 20', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'A TV chegou ao Brasil.', 'a tv chegou ao brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'O goleiro Barbosa foi culpado injustamente.', 'o goleiro barbosa foi culpado injustamente', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Sou a metade do século.', 'sou a metade do seculo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Começou a Guerra da Coreia.', 'comecou a guerra da coreia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Foi a primeira Copa no Brasil.', 'foi a primeira copa no brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'O Uruguai foi bicampeão.', 'o uruguai foi bicampeao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Getúlio Vargas foi eleito presidente.', 'getulio vargas foi eleito presidente', 'media', 'manual');
+
+-- 1958 (ano)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = '1958';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '1958', '1958', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Garrincha encantou o mundo.', 'garrincha encantou o mundo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'A Copa foi na Suécia.', 'a copa foi na suecia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Nasceu Madonna.', 'nasceu madonna', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'A bossa nova nasceu.', 'a bossa nova nasceu', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'O Brasil foi campeão pela primeira vez.', 'o brasil foi campeao pela primeira vez', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Brasília estava em construção.', 'brasilia estava em construcao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'JK era presidente.', 'jk era presidente', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'A NASA foi criada.', 'a nasa foi criada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Os Smurfs foram criados.', 'os smurfs foram criados', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'João Gilberto gravou Chega de Saudade.', 'joao gilberto gravou chega de saudade', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Pelé tinha 17 anos.', 'pele tinha 17 anos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Foi o primeiro título mundial do Brasil.', 'foi o primeiro titulo mundial do brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'O Brasil venceu a Suécia por 5 a 2 na final.', 'o brasil venceu a suecia por 5 a 2 na final', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'O bambolê virou febre.', 'o bambole virou febre', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Sou do século 20.', 'sou do seculo 20', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Vicente Feola era o técnico do Brasil.', 'vicente feola era o tecnico do brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'João XXIII foi eleito papa.', 'joao xxiii foi eleito papa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'A peça do Lego foi patenteada.', 'a peca do lego foi patenteada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Nasceu Prince.', 'nasceu prince', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Nasceu Michael Jackson.', 'nasceu michael jackson', 'media', 'manual');
+
+-- 1964 (ano)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = '1964';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '1964', '1964', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'A beatlemania chegou aos Estados Unidos.', 'a beatlemania chegou aos estados unidos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Tanques saíram de Minas rumo ao Rio.', 'tanques sairam de minas rumo ao rio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'O Ford Mustang foi lançado.', 'o ford mustang foi lancado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'O trem-bala japonês foi inaugurado.', 'o trem bala japones foi inaugurado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Mandela foi condenado à prisão perpétua.', 'mandela foi condenado a prisao perpetua', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Começou a ditadura militar.', 'comecou a ditadura militar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Glauber Rocha lançou Deus e o Diabo na Terra do Sol.', 'glauber rocha lancou deus e o diabo na terra do sol', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'O filme Mary Poppins estreou.', 'o filme mary poppins estreou', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Martin Luther King ganhou o Nobel da Paz.', 'martin luther king ganhou o nobel da paz', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Jango era presidente do Brasil.', 'jango era presidente do brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Castelo Branco assumiu o poder.', 'castelo branco assumiu o poder', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Aconteceu um golpe militar no Brasil.', 'aconteceu um golpe militar no brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Aconteceu entre 31 de março e 1º de abril.', 'aconteceu entre 31 de marco e 1 de abril', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Os Estados Unidos aprovaram a Lei dos Direitos Civis.', 'os estados unidos aprovaram a lei dos direitos civis', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Cassius Clay virou campeão e adotou o nome Muhammad Ali.', 'cassius clay virou campeao e adotou o nome muhammad ali', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Os Beatles apareceram no programa de Ed Sullivan.', 'os beatles apareceram no programa de ed sullivan', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Aconteceu o Comício da Central do Brasil.', 'aconteceu o comicio da central do brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Nasceu Keanu Reeves.', 'nasceu keanu reeves', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Tóquio recebeu as Olimpíadas.', 'toquio recebeu as olimpiadas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Sou do século 20.', 'sou do seculo 20', 'media', 'manual');
+
 -- 1969 (ano)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = '1969';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '1969', '1969', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
@@ -311,6 +461,56 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Aconteceu a revolta de Stonewall.', 'aconteceu a revolta de stonewall', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'A Arpanet enviou sua primeira mensagem.', 'a arpanet enviou sua primeira mensagem', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'O Boeing 747 voou pela primeira vez.', 'o boeing 747 voou pela primeira vez', 'media', 'manual');
+
+-- 1970 (ano)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = '1970';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '1970', '1970', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Os Beatles se separaram.', 'os beatles se separaram', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'O Brasil venceu por 4 a 1.', 'o brasil venceu por 4 a 1', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Jairzinho marcou em todos os jogos.', 'jairzinho marcou em todos os jogos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'A final foi contra a Itália.', 'a final foi contra a italia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Carlos Alberto Torres fez um gol histórico na final.', 'carlos alberto torres fez um gol historico na final', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'O Brasil foi tricampeão.', 'o brasil foi tricampeao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Foi o ano do tri.', 'foi o ano do tri', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Aconteceu o primeiro Dia da Terra.', 'aconteceu o primeiro dia da terra', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'O Brasil ficou com a Taça Jules Rimet para sempre.', 'o brasil ficou com a taca jules rimet para sempre', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'A Apollo 13 teve um acidente no caminho da Lua.', 'a apollo 13 teve um acidente no caminho da lua', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Zagallo era o técnico.', 'zagallo era o tecnico', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Sou do século 20.', 'sou do seculo 20', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'A Copa foi no México.', 'a copa foi no mexico', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Morreu Jimi Hendrix.', 'morreu jimi hendrix', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Médici era presidente.', 'medici era presidente', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'A Copa foi transmitida ao vivo para o Brasil.', 'a copa foi transmitida ao vivo para o brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Pelé ganhou sua terceira Copa.', 'pele ganhou sua terceira copa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'A música Pra Frente Brasil fez sucesso.', 'a musica pra frente brasil fez sucesso', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Tostão e Rivellino brilharam.', 'tostao e rivellino brilharam', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Morreu Janis Joplin.', 'morreu janis joplin', 'media', 'manual');
+
+-- 1985 (ano)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = '1985';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '1985', '1985', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'O jogo Super Mario Bros. foi lançado.', 'o jogo super mario bros foi lancado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Tancredo adoeceu na véspera da posse.', 'tancredo adoeceu na vespera da posse', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Os destroços do Titanic foram encontrados.', 'os destrocos do titanic foram encontrados', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Tancredo Neves foi eleito pelo Colégio Eleitoral.', 'tancredo neves foi eleito pelo colegio eleitoral', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'José Sarney assumiu a presidência.', 'jose sarney assumiu a presidencia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'O Windows 1.0 foi lançado.', 'o windows 1 0 foi lancado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Foi o primeiro presidente civil em 21 anos.', 'foi o primeiro presidente civil em 21 anos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Tancredo morreu em 21 de abril.', 'tancredo morreu em 21 de abril', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Começou a Nova República.', 'comecou a nova republica', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Acabou a ditadura militar.', 'acabou a ditadura militar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'We Are the World foi gravada.', 'we are the world foi gravada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Um terremoto atingiu a Cidade do México.', 'um terremoto atingiu a cidade do mexico', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Sou do século 20.', 'sou do seculo 20', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Aconteceu o Live Aid.', 'aconteceu o live aid', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Foi descoberto o buraco na camada de ozônio.', 'foi descoberto o buraco na camada de ozonio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Aconteceu o primeiro Rock in Rio.', 'aconteceu o primeiro rock in rio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Os militares deixaram o poder.', 'os militares deixaram o poder', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Gorbachev assumiu o comando da União Soviética.', 'gorbachev assumiu o comando da uniao sovietica', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'O Brasil voltou a ter um civil na presidência.', 'o brasil voltou a ter um civil na presidencia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'De Volta para o Futuro estreou.', 'de volta para o futuro estreou', 'media', 'manual');
 
 -- 1987 (ano)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = '1987';
@@ -436,6 +636,56 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Os ataques foram em 11 de setembro.', 'os ataques foram em 11 de setembro', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'A empresa Enron faliu.', 'a empresa enron faliu', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Sou o primeiro ano do século 21.', 'sou o primeiro ano do seculo 21', 'media', 'manual');
+
+-- 2002 (ano)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = '2002';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '2002', '2002', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Foi o ano do penta.', 'foi o ano do penta', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Sou do século 21.', 'sou do seculo 21', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Ronaldo fez os dois gols da final.', 'ronaldo fez os dois gols da final', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'A Copa foi na Coreia do Sul e no Japão.', 'a copa foi na coreia do sul e no japao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Cafu levantou a taça.', 'cafu levantou a taca', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Estreou o Homem-Aranha com Tobey Maguire.', 'estreou o homem aranha com tobey maguire', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Cafu mandou um recado para o Jardim Irene.', 'cafu mandou um recado para o jardim irene', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'O Brasil foi pentacampeão.', 'o brasil foi pentacampeao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'O euro começou a circular.', 'o euro comecou a circular', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Estreou o filme Cidade de Deus.', 'estreou o filme cidade de deus', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'O Brasil venceu por 2 a 0.', 'o brasil venceu por 2 a 0', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'A Copa foi em dois países.', 'a copa foi em dois paises', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'A final foi em Yokohama.', 'a final foi em yokohama', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'A final foi contra a Alemanha.', 'a final foi contra a alemanha', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Ronaldo foi artilheiro com 8 gols.', 'ronaldo foi artilheiro com 8 gols', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Rivaldo foi decisivo.', 'rivaldo foi decisivo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Felipão era o técnico do Brasil.', 'felipao era o tecnico do brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Lula foi eleito presidente.', 'lula foi eleito presidente', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Ronaldo fez um corte de cabelo famoso.', 'ronaldo fez um corte de cabelo famoso', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Estreou o Big Brother Brasil.', 'estreou o big brother brasil', 'media', 'manual');
+
+-- 2014 (ano)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = '2014';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, '2014', '2014', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'ano';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Morreu Robin Williams.', 'morreu robin williams', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Morreu Ariano Suassuna.', 'morreu ariano suassuna', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'A Copa foi no Brasil.', 'a copa foi no brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'A Alemanha venceu a Argentina na final.', 'a alemanha venceu a argentina na final', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'A Alemanha fez 7 a 1 no Brasil.', 'a alemanha fez 7 a 1 no brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Um avião da Malaysia Airlines desapareceu.', 'um aviao da malaysia airlines desapareceu', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Morreu Gabriel García Márquez.', 'morreu gabriel garcia marquez', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Dilma foi reeleita.', 'dilma foi reeleita', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Começou a Operação Lava Jato.', 'comecou a operacao lava jato', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Malala ganhou o Nobel da Paz.', 'malala ganhou o nobel da paz', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'A final foi no Maracanã.', 'a final foi no maracana', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'O desafio do balde de gelo viralizou.', 'o desafio do balde de gelo viralizou', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'A Alemanha foi tetracampeã.', 'a alemanha foi tetracampea', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Eduardo Campos morreu num acidente aéreo.', 'eduardo campos morreu num acidente aereo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Foi o ano do 7 a 1.', 'foi o ano do 7 a 1', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Sou do século 21.', 'sou do seculo 21', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Neymar se machucou contra a Colômbia.', 'neymar se machucou contra a colombia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'A semifinal foi no Mineirão.', 'a semifinal foi no mineirao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'A Rússia anexou a Crimeia.', 'a russia anexou a crimeia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Foi 64 anos depois do Maracanazo.', 'foi 64 anos depois do maracanazo', 'media', 'manual');
 
 -- 2015 (ano)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = '2015';
@@ -592,6 +842,57 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Bike', 'bike');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Magrela', 'magrela');
 
+-- Bola de futebol (coisa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'bola de futebol';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Bola de futebol', 'bola de futebol', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Sou cabeceada.', 'sou cabeceada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Sou a estrela do gol.', 'sou a estrela do gol', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Na Copa de 2014 me chamaram de Brazuca.', 'na copa de 2014 me chamaram de brazuca', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'O gandula me devolve.', 'o gandula me devolve', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Uma marca alemã me fabrica para a Copa desde 1970.', 'uma marca alema me fabrica para a copa desde 1970', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Na rua, já fui feita de meia.', 'na rua ja fui feita de meia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Tenho uma câmara de ar.', 'tenho uma camara de ar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Balanço a rede.', 'balanco a rede', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Na Copa de 2010 me chamaram de Jabulani.', 'na copa de 2010 me chamaram de jabulani', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Me enchem com bomba e agulha.', 'me enchem com bomba e agulha', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Peso cerca de 400 gramas.', 'peso cerca de 400 gramas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Em espanhol sou pelota.', 'em espanhol sou pelota', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Sou chutada.', 'sou chutada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Quem é meu dono escolhe o time.', 'quem e meu dono escolhe o time', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Sou a paixão nacional.', 'sou a paixao nacional', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Minha versão clássica tem gomos pretos e brancos.', 'minha versao classica tem gomos pretos e brancos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Sou usada no esporte mais popular do Brasil.', 'sou usada no esporte mais popular do brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Rolo pelo gramado.', 'rolo pelo gramado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Sou um objeto.', 'sou um objeto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Sou redonda.', 'sou redonda', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Bola', 'bola');
+
+-- Cadeira (coisa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'cadeira';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Cadeira', 'cadeira', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Fico em volta da mesa.', 'fico em volta da mesa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Posso ser de plástico em bar.', 'posso ser de plastico em bar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Posso ser de balanço.', 'posso ser de balanco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Existe uma versão elétrica de execução.', 'existe uma versao eletrica de execucao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Numa festa infantil, tiram uma de mim a cada rodada de música.', 'numa festa infantil tiram uma de mim a cada rodada de musica', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Sou o móvel mais comum para se sentar.', 'sou o movel mais comum para se sentar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Meu nome vem do grego, como cátedra.', 'meu nome vem do grego como catedra', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Faço barulho quando arrastada.', 'faco barulho quando arrastada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Sou um móvel.', 'sou um movel', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Geralmente tenho quatro pernas.', 'geralmente tenho quatro pernas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Posso ser empilhada.', 'posso ser empilhada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Posso ser cativa no estádio.', 'posso ser cativa no estadio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Tenho assento.', 'tenho assento', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Tenho encosto.', 'tenho encosto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Posso ter rodas para quem não anda.', 'posso ter rodas para quem nao anda', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Sou usada para sentar.', 'sou usada para sentar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Posso ser giratória no escritório.', 'posso ser giratoria no escritorio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Fico na sala de jantar.', 'fico na sala de jantar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Posso ter braços.', 'posso ter bracos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'O trono é meu primo real.', 'o trono e meu primo real', 'media', 'manual');
+
 -- Carrossel (coisa)
 DELETE FROM `cartas` WHERE `qid` = 'Q2940339' OR `resposta_normalizada` = 'carrossel';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, 'Q2940339', 'Carrossel', 'carrossel', 'https://pt.wikipedia.org/wiki/Carrossel_(telenovela)', 'Carrossel é uma telenovela brasileira que foi produzida pelo SBT e exibida de 21 de maio de 2012 a 26 de julho de 2013 em 310 capítulos, substituindo Corações Feridos e sendo substituída por Chiquititas.', 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
@@ -642,6 +943,56 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Preciso de um chip.', 'preciso de um chip', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Posso vibrar.', 'posso vibrar', 'media', 'manual');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Smartphone', 'smartphone');
+
+-- Chave (coisa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'chave';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Chave', 'chave', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Sou um objeto.', 'sou um objeto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Sumo quando você está atrasado.', 'sumo quando voce esta atrasado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Ligo o carro.', 'ligo o carro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Terminar com eu de ouro é terminar bem.', 'terminar com eu de ouro e terminar bem', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Um tipo meu serve para o Pix.', 'um tipo meu serve para o pix', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Vivo pendurada num aro com enfeite.', 'vivo pendurada num aro com enfeite', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Sirvo para abrir fechaduras.', 'sirvo para abrir fechaduras', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Abro portas.', 'abro portas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Sou pequena.', 'sou pequena', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Ando em molho.', 'ando em molho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Muita gente me esconde debaixo do tapete.', 'muita gente me esconde debaixo do tapete', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Prefeitos me entregam a visitantes ilustres.', 'prefeitos me entregam a visitantes ilustres', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Tenho dentes.', 'tenho dentes', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Geralmente sou de metal.', 'geralmente sou de metal', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Às vezes fico trancada do lado de dentro.', 'as vezes fico trancada do lado de dentro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Posso ser tetra.', 'posso ser tetra', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Tenho uma fechadura como parceira.', 'tenho uma fechadura como parceira', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Uma ferramenta de fenda tem meu nome.', 'uma ferramenta de fenda tem meu nome', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Tranco portas.', 'tranco portas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Posso ser copiada.', 'posso ser copiada', 'media', 'manual');
+
+-- Cuscuz (coisa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'cuscuz';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Cuscuz', 'cuscuz', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Sou cozido no vapor.', 'sou cozido no vapor', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Sou comida típica do Nordeste.', 'sou comida tipica do nordeste', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Sou o rei do café da manhã nordestino.', 'sou o rei do cafe da manha nordestino', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Sou feito de flocão de milho.', 'sou feito de flocao de milho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Também apareço no jantar.', 'tambem apareco no jantar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Minha versão marroquina é de sêmola.', 'minha versao marroquina e de semola', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Combino com leite de coco.', 'combino com leite de coco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Sou amarelo.', 'sou amarelo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Combino com ovo.', 'combino com ovo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Disputo o café da manhã com a tapioca.', 'disputo o cafe da manha com a tapioca', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Tenho uma versão paulista com sardinha.', 'tenho uma versao paulista com sardinha', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Sou barato e rendo muito.', 'sou barato e rendo muito', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Sou uma comida.', 'sou uma comida', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Tenho uma panela própria de dois andares.', 'tenho uma panela propria de dois andares', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Tenho origem no norte da África.', 'tenho origem no norte da africa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Minha versão magrebina é patrimônio da UNESCO.', 'minha versao magrebina e patrimonio da unesco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Fico ótimo com manteiga.', 'fico otimo com manteiga', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Combino com queijo coalho.', 'combino com queijo coalho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Sou umedecido com água e sal.', 'sou umedecido com agua e sal', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Combino com carne de sol.', 'combino com carne de sol', 'media', 'manual');
 
 -- Dom Quixote (coisa)
 DELETE FROM `cartas` WHERE `qid` = 'Q480' OR `resposta_normalizada` = 'dom quixote';
@@ -696,6 +1047,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Duro entre 60 e 90 minutos.', 'duro entre 60 e 90 minutos', 'media', 'P2047');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Quem me produziu foi TV Globo.', 'quem me produziu foi tv globo', 'media', 'P272');
 
+-- Espelho (coisa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'espelho';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Espelho', 'espelho', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Alice atravessou um de mim.', 'alice atravessou um de mim', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Reflito a luz.', 'reflito a luz', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Mostro o reflexo.', 'mostro o reflexo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'A madrasta da Branca de Neve falava comigo.', 'a madrasta da branca de neve falava comigo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Mostro sua imagem.', 'mostro sua imagem', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Sou um objeto.', 'sou um objeto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Sou feito de vidro com uma camada metálica.', 'sou feito de vidro com uma camada metalica', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Fico em elevadores.', 'fico em elevadores', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Tenho luzes em volta nos camarins.', 'tenho luzes em volta nos camarins', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Quebrar um de mim dá sete anos de azar.', 'quebrar um de mim da sete anos de azar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Inverto esquerda e direita.', 'inverto esquerda e direita', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Sirvo para se arrumar.', 'sirvo para se arrumar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Estou dentro de periscópios.', 'estou dentro de periscopios', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Embaço no banho.', 'embaco no banho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Sou usado para se ver.', 'sou usado para se ver', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Existe selfie comigo.', 'existe selfie comigo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Vampiros não aparecem em mim.', 'vampiros nao aparecem em mim', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Newton usou uma versão minha no telescópio.', 'newton usou uma versao minha no telescopio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Tenho versão retrovisora no carro.', 'tenho versao retrovisora no carro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Fico no banheiro.', 'fico no banheiro', 'media', 'manual');
+
 -- Geladeira (coisa)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = 'geladeira';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Geladeira', 'geladeira', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
@@ -746,6 +1122,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Sou um objeto.', 'sou um objeto', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Rihanna tem uma música com meu nome em inglês.', 'rihanna tem uma musica com meu nome em ingles', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Meu tecido é impermeável.', 'meu tecido e impermeavel', 'media', 'manual');
+
+-- Livro (coisa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'livro';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Livro', 'livro', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Tenho autor.', 'tenho autor', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Traças me atacam.', 'tracas me atacam', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Posso ser best-seller.', 'posso ser best seller', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Tenho uma Bienal.', 'tenho uma bienal', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Tenho versão digital.', 'tenho versao digital', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Meu dia mundial é 23 de abril.', 'meu dia mundial e 23 de abril', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Tenho número ISBN.', 'tenho numero isbn', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Tenho orelhas.', 'tenho orelhas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Tenho capa.', 'tenho capa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Uso marcador.', 'uso marcador', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Gutenberg revolucionou minha produção.', 'gutenberg revolucionou minha producao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Tenho lombada.', 'tenho lombada', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Sou um objeto.', 'sou um objeto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Sou vendido usado em sebos.', 'sou vendido usado em sebos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Moro na biblioteca.', 'moro na biblioteca', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Fui feito para ser lido.', 'fui feito para ser lido', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Tenho páginas.', 'tenho paginas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'A Bíblia foi um dos meus primeiros impressos.', 'a biblia foi um dos meus primeiros impressos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Uma editora me publica.', 'uma editora me publica', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Tenho sumário.', 'tenho sumario', 'media', 'manual');
 
 -- Minecraft (coisa)
 DELETE FROM `cartas` WHERE `qid` = 'Q49740' OR `resposta_normalizada` = 'minecraft';
@@ -848,6 +1249,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Quem me publicou foi George Allen & Unwin.', 'quem me publicou foi george allen unwin', 'media', 'P123');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Não sou pessoa, não sou lugar e não sou ano.', 'nao sou pessoa nao sou lugar e nao sou ano', 'dificil', 'generica_1');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'The Lord of the Rings', 'the lord of the rings');
+
+-- Óculos (coisa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'oculos';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Óculos', 'oculos', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Sou um objeto.', 'sou um objeto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Tenho plaquetas no nariz.', 'tenho plaquetas no nariz', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Me limpam com um paninho.', 'me limpam com um paninho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Tenho hastes.', 'tenho hastes', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Harry Potter usa um par redondo.', 'harry potter usa um par redondo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Embaço com o vapor.', 'embaco com o vapor', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Posso ter grau.', 'posso ter grau', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Lentes de contato são minhas rivais.', 'lentes de contato sao minhas rivais', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Muita gente me procura e estou na cabeça.', 'muita gente me procura e estou na cabeca', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Posso proteger do sol.', 'posso proteger do sol', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Ajudo as pessoas a enxergar.', 'ajudo as pessoas a enxergar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Quem me usa às vezes é chamado de quatro-olhos.', 'quem me usa as vezes e chamado de quatro olhos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Quem me receita é o oftalmologista.', 'quem me receita e o oftalmologista', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Escorrego no nariz.', 'escorrego no nariz', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Tenho lentes.', 'tenho lentes', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Tenho versão 3D para o cinema.', 'tenho versao 3d para o cinema', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Tenho armação.', 'tenho armacao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Moro num estojo.', 'moro num estojo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Benjamin Franklin inventou minha versão bifocal.', 'benjamin franklin inventou minha versao bifocal', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Ajudo quem tem miopia.', 'ajudo quem tem miopia', 'media', 'manual');
 
 -- Pipa (coisa)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = 'pipa';
@@ -955,6 +1381,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Acordeão', 'acordeao');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Gaita', 'gaita');
 
+-- Sapato (coisa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'sapato';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Sapato', 'sapato', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Tenho um número.', 'tenho um numero', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Uma calçadeira ajuda a me colocar.', 'uma calcadeira ajuda a me colocar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Muita gente me tira na porta de casa.', 'muita gente me tira na porta de casa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Dorothy tinha um par vermelho mágico.', 'dorothy tinha um par vermelho magico', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Posso ter cadarço.', 'posso ter cadarco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Sou um objeto.', 'sou um objeto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Tenho um direito e um esquerdo.', 'tenho um direito e um esquerdo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Posso ter salto.', 'posso ter salto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Vendo em par.', 'vendo em par', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Cinderela perdeu um de cristal.', 'cinderela perdeu um de cristal', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Quem me conserta tem nome próprio.', 'quem me conserta tem nome proprio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Sou feito numa forma.', 'sou feito numa forma', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'O tênis é meu primo.', 'o tenis e meu primo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Posso causar chulé.', 'posso causar chule', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Tenho sola.', 'tenho sola', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Franca, em São Paulo, é minha capital.', 'franca em sao paulo e minha capital', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Sou um calçado.', 'sou um calcado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Levo graxa.', 'levo graxa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Um jornalista me atirou em George W. Bush.', 'um jornalista me atirou em george w bush', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'O engraxate me deixa brilhando.', 'o engraxate me deixa brilhando', 'media', 'manual');
+
 -- Tapioca (coisa)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = 'tapioca';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Tapioca', 'tapioca', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
@@ -980,6 +1431,32 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Sou feita na frigideira, sem óleo.', 'sou feita na frigideira sem oleo', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Sou uma espécie de panqueca de goma.', 'sou uma especie de panqueca de goma', 'media', 'manual');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Beiju', 'beiju');
+
+-- Televisão (coisa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'televisao';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Televisão', 'televisao', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'John Logie Baird me demonstrou em 1926.', 'john logie baird me demonstrou em 1926', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Fui preto e branco por muito tempo.', 'fui preto e branco por muito tempo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Passo jogos de futebol.', 'passo jogos de futebol', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Passo novelas.', 'passo novelas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Já precisei de palha de aço na antena.', 'ja precisei de palha de aco na antena', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Cheguei ao Brasil em 1950.', 'cheguei ao brasil em 1950', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Tenho canais.', 'tenho canais', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Fiquei colorida no Brasil em 1972.', 'fiquei colorida no brasil em 1972', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Minhas primeiras versões tinham tubo.', 'minhas primeiras versoes tinham tubo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Mostro imagens e sons à distância.', 'mostro imagens e sons a distancia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Tenho horário nobre.', 'tenho horario nobre', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Tenho controle remoto.', 'tenho controle remoto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Me chamam de telinha.', 'me chamam de telinha', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Chio quando fico sem sinal.', 'chio quando fico sem sinal', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Sou medida em polegadas.', 'sou medida em polegadas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Hoje posso ser smart.', 'hoje posso ser smart', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Sou usada para maratonar séries.', 'sou usada para maratonar series', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Meu controle vive sumindo no sofá.', 'meu controle vive sumindo no sofa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Fico na sala.', 'fico na sala', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Sou um aparelho.', 'sou um aparelho', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'TV', 'tv');
 
 -- The Godfather (coisa)
 DELETE FROM `cartas` WHERE `qid` = 'Q47703' OR `resposta_normalizada` = 'the godfather';
@@ -1033,6 +1510,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Cameron viu a história de amor como um jeito de cativar o público para o desastre real.', 'cameron viu a historia de amor como um jeito de cativar o publico para o desastre real', 'media', 'resumo_wikipedia_3');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Duro entre 180 e 400 minutos.', 'duro entre 180 e 400 minutos', 'media', 'P2047');
 
+-- Vassoura (coisa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'vassoura';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Vassoura', 'vassoura', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Minha parceira é a pá.', 'minha parceira e a pa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Tiro poeira do chão.', 'tiro poeira do chao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Fico na área de serviço.', 'fico na area de servico', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Às vezes escondo a sujeira debaixo do tapete.', 'as vezes escondo a sujeira debaixo do tapete', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Sirvo para varrer.', 'sirvo para varrer', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Voo com bruxas.', 'voo com bruxas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Tenho parentes elétricos que aspiram.', 'tenho parentes eletricos que aspiram', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Uma marcha de frevo famosa tem meu nome no diminutivo.', 'uma marcha de frevo famosa tem meu nome no diminutivo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Me encosto atrás da porta.', 'me encosto atras da porta', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Dizem que me virar atrás da porta faz a visita ir embora.', 'dizem que me virar atras da porta faz a visita ir embora', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Mickey me encantou em Fantasia.', 'mickey me encantou em fantasia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Sou um objeto.', 'sou um objeto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Posso ser de piaçava.', 'posso ser de piacava', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Fui símbolo da campanha de Jânio Quadros.', 'fui simbolo da campanha de janio quadros', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Tenho cerdas.', 'tenho cerdas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Varro.', 'varro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Sou usada no quadribol.', 'sou usada no quadribol', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Tenho cabo.', 'tenho cabo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Limpo a casa.', 'limpo a casa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Sou usada na faxina.', 'sou usada na faxina', 'media', 'manual');
+
 -- Violão (coisa)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = 'violao';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Violão', 'violao', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'coisa';
@@ -1082,6 +1584,32 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Produzo os chamados rios voadores.', 'produzo os chamados rios voadores', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Tenho a maior bacia hidrográfica do mundo.', 'tenho a maior bacia hidrografica do mundo', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Tenho o rio mais volumoso do planeta.', 'tenho o rio mais volumoso do planeta', 'media', 'manual');
+
+-- Antártida (lugar)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'antartida';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Antártida', 'antartida', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Amundsen chegou ao meu polo em 1911.', 'amundsen chegou ao meu polo em 1911', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Scott morreu voltando do meu polo.', 'scott morreu voltando do meu polo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'O krill é base da minha cadeia alimentar.', 'o krill e base da minha cadeia alimentar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Um tratado de 1959 me protege.', 'um tratado de 1959 me protege', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'A base brasileira pegou fogo em 2012.', 'a base brasileira pegou fogo em 2012', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'O Polo Sul fica em mim.', 'o polo sul fica em mim', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Sou o lugar mais frio do planeta.', 'sou o lugar mais frio do planeta', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Tenho seis meses de dia e seis de noite.', 'tenho seis meses de dia e seis de noite', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Não tenho população permanente.', 'nao tenho populacao permanente', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Guardo a maior reserva de água doce, em gelo.', 'guardo a maior reserva de agua doce em gelo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Sou o continente gelado.', 'sou o continente gelado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Pinguins-imperadores vivem aqui.', 'pinguins imperadores vivem aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Também sou considerada um deserto.', 'tambem sou considerada um deserto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'O Brasil tem uma base aqui.', 'o brasil tem uma base aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Essa base foi reinaugurada em 2020.', 'essa base foi reinaugurada em 2020', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'O buraco na camada de ozônio fica sobre mim.', 'o buraco na camada de ozonio fica sobre mim', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Registrei 89 graus abaixo de zero.', 'registrei 89 graus abaixo de zero', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Nenhum país é meu dono.', 'nenhum pais e meu dono', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Sou um continente.', 'sou um continente', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'O navio Endurance, de Shackleton, afundou aqui.', 'o navio endurance de shackleton afundou aqui', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Antártica', 'antartica');
 
 -- Bagdá (lugar)
 DELETE FROM `cartas` WHERE `qid` = 'Q1530' OR `resposta_normalizada` = 'bagda';
@@ -1137,6 +1665,82 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Quem é daqui se chama assim: Београђанка.', 'quem e daqui se chama assim', 'facil', 'P1549');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Belgrade', 'belgrade');
 
+-- Campina Grande (lugar)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'campina grande';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Campina Grande', 'campina grande', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Meu clássico se chama Clássico dos Maiorais.', 'meu classico se chama classico dos maiorais', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Tenho o bairro de Bodocongó.', 'tenho o bairro de bodocongo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Treze e Campinense fazem meu clássico.', 'treze e campinense fazem meu classico', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Sou um polo de tecnologia.', 'sou um polo de tecnologia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Sou uma cidade.', 'sou uma cidade', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Fico a cerca de 130 km da capital do meu estado.', 'fico a cerca de 130 km da capital do meu estado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Já fui uma potência na exportação de algodão.', 'ja fui uma potencia na exportacao de algodao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Sou a segunda maior cidade do meu estado.', 'sou a segunda maior cidade do meu estado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Tive a micareta Micarande.', 'tive a micareta micarande', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Me dizem dona do Maior São João do Mundo.', 'me dizem dona do maior sao joao do mundo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Tenho o Parque do Povo.', 'tenho o parque do povo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Fico no Planalto da Borborema.', 'fico no planalto da borborema', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Tenho clima mais ameno que o litoral.', 'tenho clima mais ameno que o litoral', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Meu forró é famoso no Brasil todo.', 'meu forro e famoso no brasil todo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Fico na Paraíba.', 'fico na paraiba', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Tenho o Açude Velho.', 'tenho o acude velho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Minha festa dura o mês de junho inteiro.', 'minha festa dura o mes de junho inteiro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Sou chamada de Rainha da Borborema.', 'sou chamada de rainha da borborema', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Tenho a UFCG.', 'tenho a ufcg', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Disputo o título de maior São João com Caruaru.', 'disputo o titulo de maior sao joao com caruaru', 'media', 'manual');
+
+-- Cataratas do Iguaçu (lugar)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'cataratas do iguacu';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Cataratas do Iguaçu', 'cataratas do iguacu', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Formo arco-íris com frequência.', 'formo arco iris com frequencia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Meu nome significa água grande em tupi-guarani.', 'meu nome significa agua grande em tupi guarani', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Fico perto da tríplice fronteira.', 'fico perto da triplice fronteira', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Sou um conjunto de quedas d\'água.', 'sou um conjunto de quedas d agua', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Quatis circulam entre os turistas.', 'quatis circulam entre os turistas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Sou patrimônio da UNESCO.', 'sou patrimonio da unesco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Fico perto da usina de Itaipu.', 'fico perto da usina de itaipu', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Tenho cerca de 275 quedas.', 'tenho cerca de 275 quedas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Uma primeira-dama americana disse: pobre Niágara.', 'uma primeira dama americana disse pobre niagara', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Sou uma atração natural.', 'sou uma atracao natural', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Sou formada por um rio de mesmo nome.', 'sou formada por um rio de mesmo nome', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Fico no Paraná.', 'fico no parana', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Fico na fronteira entre Brasil e Argentina.', 'fico na fronteira entre brasil e argentina', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Estou num parque nacional.', 'estou num parque nacional', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Tenho passarelas sobre a água.', 'tenho passarelas sobre a agua', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Fui eleita uma das sete maravilhas naturais.', 'fui eleita uma das sete maravilhas naturais', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'A cidade mais próxima do lado brasileiro tem Foz no nome.', 'a cidade mais proxima do lado brasileiro tem foz no nome', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Passeios de barco levam turistas bem perto de mim.', 'passeios de barco levam turistas bem perto de mim', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Vivo cercada de spray e barulho.', 'vivo cercada de spray e barulho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Minha queda principal se chama Garganta do Diabo.', 'minha queda principal se chama garganta do diabo', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Cataratas', 'cataratas');
+
+-- Coliseu (lugar)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'coliseu';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Coliseu', 'coliseu', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Terremotos me danificaram.', 'terremotos me danificaram', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Meu apelido vem de uma estátua gigante de Nero.', 'meu apelido vem de uma estatua gigante de nero', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'O imperador Vespasiano começou minha obra.', 'o imperador vespasiano comecou minha obra', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Tenho corredores subterrâneos.', 'tenho corredores subterraneos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Sou o símbolo de Roma.', 'sou o simbolo de roma', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Cabiam cerca de 50 mil pessoas em mim.', 'cabiam cerca de 50 mil pessoas em mim', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Sou uma construção.', 'sou uma construcao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Minhas pedras foram reaproveitadas em outras obras.', 'minhas pedras foram reaproveitadas em outras obras', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Sou um anfiteatro.', 'sou um anfiteatro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Meu nome original é Anfiteatro Flaviano.', 'meu nome original e anfiteatro flaviano', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Gladiadores lutavam aqui.', 'gladiadores lutavam aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'O filme Gladiador me mostra cheio.', 'o filme gladiador me mostra cheio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Fico na Itália.', 'fico na italia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'O imperador Tito me inaugurou.', 'o imperador tito me inaugurou', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Apareço na moeda italiana de 5 centavos de euro.', 'apareco na moeda italiana de 5 centavos de euro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Tinha um toldo chamado velário.', 'tinha um toldo chamado velario', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'O papa faz a Via Sacra aqui na Sexta-feira Santa.', 'o papa faz a via sacra aqui na sexta feira santa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Fui eleito uma das novas sete maravilhas.', 'fui eleito uma das novas sete maravilhas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Dizem que encenavam batalhas navais aqui.', 'dizem que encenavam batalhas navais aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Fui inaugurado no ano 80.', 'fui inaugurado no ano 80', 'media', 'manual');
+
 -- Cuba (lugar)
 DELETE FROM `cartas` WHERE `qid` = 'Q241' OR `resposta_normalizada` = 'cuba';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, 'Q241', 'Cuba', 'cuba', 'https://pt.wikipedia.org/wiki/Cuba', 'Cuba, oficialmente República de Cuba, é um país insular localizado no mar do Caribe, na América Central e Caribe. É um país que compreende a ilha de Cuba, bem como a Ilha da Juventude e vários arquipélagos menores. Cuba está localizada no norte do Caribe, onde o mar do Caribe, o Golfo do México e o Oceano Atlântico se encontram. Fica a leste da Península de Iucatã (México), a sul tanto do estado norte-americano da Flórida como das Bahamas, a oeste da Hispaniola, e a norte tanto da Jamaica como das Ilhas Caimão. Havana é a maior cidade e capital; outras grandes cidades incluem Santiago de Cuba e Camagüey. A área oficial da República de Cuba é de 109 884 km2. A ilha principal de Cuba é a maior ilha de Cuba e do Caribe, com uma área de 104 338 km2. Cuba é o segundo país mais populoso do Caribe, depois do Haiti, com mais de 11 milhões de habitantes.', 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
@@ -1162,6 +1766,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Havana é a maior cidade e capital; outras grandes cidades incluem Santiago de ... e Camagüey.', 'havana e a maior cidade e capital outras grandes cidades incluem santiago de e camaguey', 'media', 'resumo_wikipedia_3');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Meu vizinho de porta é Reino Unido.', 'meu vizinho de porta e reino unido', 'media', 'P47#1');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'República de Cuba', 'republica de cuba');
+
+-- Egito (lugar)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'egito';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Egito', 'egito', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Minha moeda é a libra.', 'minha moeda e a libra', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Escrevia com hieróglifos.', 'escrevia com hieroglifos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Cleópatra governou aqui.', 'cleopatra governou aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Tenho a única maravilha antiga ainda de pé.', 'tenho a unica maravilha antiga ainda de pe', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Minha capital é o Cairo.', 'minha capital e o cairo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Sou a terra das múmias.', 'sou a terra das mumias', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Sou um país.', 'sou um pais', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Já tive um farol que era maravilha do mundo.', 'ja tive um farol que era maravilha do mundo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Meus antigos reis eram faraós.', 'meus antigos reis eram faraos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Mohamed Salah é daqui.', 'mohamed salah e daqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'A Pedra de Roseta foi encontrada aqui.', 'a pedra de roseta foi encontrada aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'A tumba de Tutancâmon foi descoberta aqui em 1922.', 'a tumba de tutancamon foi descoberta aqui em 1922', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Tenho a represa de Assuã.', 'tenho a represa de assua', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Tenho parte do deserto do Saara.', 'tenho parte do deserto do saara', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Tenho as pirâmides de Gizé.', 'tenho as piramides de gize', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Tenho a Esfinge.', 'tenho a esfinge', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Sou banhado pelo Mar Vermelho.', 'sou banhado pelo mar vermelho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'O rio Nilo me atravessa.', 'o rio nilo me atravessa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Tenho o Canal de Suez.', 'tenho o canal de suez', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Fico no norte da África.', 'fico no norte da africa', 'media', 'manual');
 
 -- Fernando de Noronha (lugar)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = 'fernando de noronha';
@@ -1402,6 +2031,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Sou um parque nacional.', 'sou um parque nacional', 'media', 'manual');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Entre minhas dunas se formam lagoas.', 'entre minhas dunas se formam lagoas', 'media', 'manual');
 
+-- Londres (lugar)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'londres';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Londres', 'londres', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Tenho a Torre onde ficam as joias da coroa.', 'tenho a torre onde ficam as joias da coroa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'A plataforma 9 e 3/4 fica numa das minhas estações.', 'a plataforma 9 e 3 4 fica numa das minhas estacoes', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Sou famosa pela neblina.', 'sou famosa pela neblina', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Sou cortada pelo rio Tâmisa.', 'sou cortada pelo rio tamisa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Sou a capital da Inglaterra.', 'sou a capital da inglaterra', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Tenho o metrô mais antigo do mundo.', 'tenho o metro mais antigo do mundo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Os Beatles atravessaram uma faixa aqui.', 'os beatles atravessaram uma faixa aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Tenho o Palácio de Buckingham.', 'tenho o palacio de buckingham', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Sou a capital do Reino Unido.', 'sou a capital do reino unido', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Tenho a roda-gigante London Eye.', 'tenho a roda gigante london eye', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Recebo o torneio de Wimbledon.', 'recebo o torneio de wimbledon', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Meus táxis são pretos.', 'meus taxis sao pretos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Tenho ônibus vermelhos de dois andares.', 'tenho onibus vermelhos de dois andares', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Recebi as Olimpíadas três vezes.', 'recebi as olimpiadas tres vezes', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Tenho o Big Ben.', 'tenho o big ben', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Sou uma cidade.', 'sou uma cidade', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'O meridiano de Greenwich passa aqui.', 'o meridiano de greenwich passa aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Meu metrô é chamado de Tube.', 'meu metro e chamado de tube', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Um grande incêndio me destruiu em 1666.', 'um grande incendio me destruiu em 1666', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Sherlock Holmes morava na Baker Street.', 'sherlock holmes morava na baker street', 'media', 'manual');
+
 -- Machu Picchu (lugar)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = 'machu picchu';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Machu Picchu', 'machu picchu', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
@@ -1511,6 +2165,57 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Serpenteio por montanhas.', 'serpenteio por montanhas', 'media', 'manual');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Grande Muralha', 'grande muralha');
 
+-- Nova York (lugar)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'nova york';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Nova York', 'nova york', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Um deles é o Brooklyn, com uma ponte famosa.', 'um deles e o brooklyn com uma ponte famosa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Tenho o Central Park.', 'tenho o central park', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'No Réveillon uma bola desce aqui.', 'no reveillon uma bola desce aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Tenho a sede da ONU.', 'tenho a sede da onu', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Sou a Big Apple.', 'sou a big apple', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'A Estátua da Liberdade fica aqui.', 'a estatua da liberdade fica aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Não sou a capital do meu estado.', 'nao sou a capital do meu estado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Sou uma cidade.', 'sou uma cidade', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Tenho a bolsa de Wall Street.', 'tenho a bolsa de wall street', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Tenho o Empire State Building.', 'tenho o empire state building', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Tenho a Times Square.', 'tenho a times square', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Meus táxis são amarelos.', 'meus taxis sao amarelos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Recebi uma estátua de presente da França.', 'recebi uma estatua de presente da franca', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Sou a cidade que nunca dorme.', 'sou a cidade que nunca dorme', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Já me chamei Nova Amsterdã.', 'ja me chamei nova amsterda', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Sofri os ataques de 11 de setembro.', 'sofri os ataques de 11 de setembro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Tenho cinco distritos.', 'tenho cinco distritos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Fui fundada por holandeses.', 'fui fundada por holandeses', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Tenho a Broadway.', 'tenho a broadway', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Meu metrô funciona 24 horas.', 'meu metro funciona 24 horas', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'New York', 'new york');
+
+-- Pantanal (lugar)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'pantanal';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Pantanal', 'pantanal', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Tenho araras-azuis.', 'tenho araras azuis', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Sou famoso pela pesca esportiva.', 'sou famoso pela pesca esportiva', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Tenho muitos jacarés.', 'tenho muitos jacares', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Sou um bioma.', 'sou um bioma', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Me estendo até a Bolívia e o Paraguai.', 'me estendo ate a bolivia e o paraguai', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Corumbá fica em mim.', 'corumba fica em mim', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Sou uma grande área alagada do Centro-Oeste.', 'sou uma grande area alagada do centro oeste', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Sou a maior planície alagável do mundo.', 'sou a maior planicie alagavel do mundo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'O rio Paraguai me atravessa.', 'o rio paraguai me atravessa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Minhas comitivas levam gado com peões.', 'minhas comitivas levam gado com peoes', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Parte de mim é patrimônio da UNESCO.', 'parte de mim e patrimonio da unesco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Sofri incêndios enormes em 2020.', 'sofri incendios enormes em 2020', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Tenho muitas capivaras.', 'tenho muitas capivaras', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'O tuiuiú é minha ave símbolo.', 'o tuiuiu e minha ave simbolo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Tenho uma estrada chamada Transpantaneira.', 'tenho uma estrada chamada transpantaneira', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Fico em Mato Grosso e Mato Grosso do Sul.', 'fico em mato grosso e mato grosso do sul', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Tenho época de cheia e época de seca.', 'tenho epoca de cheia e epoca de seca', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Tenho a maior concentração de onças-pintadas.', 'tenho a maior concentracao de oncas pintadas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Virei nome de novela em 1990.', 'virei nome de novela em 1990', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'A novela teve remake em 2022.', 'a novela teve remake em 2022', 'media', 'manual');
+
 -- Paris (lugar)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = 'paris';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Paris', 'paris', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
@@ -1563,6 +2268,56 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Reykjavíkurborg', 'reykjavikurborg');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Reiquejavique', 'reiquejavique');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Reiquiavique', 'reiquiavique');
+
+-- Rio de Janeiro (lugar)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'rio de janeiro';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Rio de Janeiro', 'rio de janeiro', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Tenho a praia de Copacabana.', 'tenho a praia de copacabana', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Tenho uma das maiores florestas urbanas do mundo.', 'tenho uma das maiores florestas urbanas do mundo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Tenho o Pão de Açúcar.', 'tenho o pao de acucar', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Recebo o Rock in Rio.', 'recebo o rock in rio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Fui fundada em 1565 por Estácio de Sá.', 'fui fundada em 1565 por estacio de sa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Tenho a Baía de Guanabara.', 'tenho a baia de guanabara', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Recebi a família real em 1808.', 'recebi a familia real em 1808', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Recebi as Olimpíadas de 2016.', 'recebi as olimpiadas de 2016', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'A Garota de Ipanema é daqui.', 'a garota de ipanema e daqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Meu padroeiro é São Sebastião.', 'meu padroeiro e sao sebastiao', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Meu Réveillon na praia é famoso.', 'meu reveillon na praia e famoso', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Sou chamada de Cidade Maravilhosa.', 'sou chamada de cidade maravilhosa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Fui capital do Brasil até 1960.', 'fui capital do brasil ate 1960', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Tenho um bondinho famoso.', 'tenho um bondinho famoso', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Tenho o Maracanã.', 'tenho o maracana', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'O Cristo Redentor fica aqui.', 'o cristo redentor fica aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Meu carnaval tem o Sambódromo.', 'meu carnaval tem o sambodromo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Sou uma cidade.', 'sou uma cidade', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Quem nasce aqui é carioca.', 'quem nasce aqui e carioca', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Tenho a Escadaria Selarón.', 'tenho a escadaria selaron', 'media', 'manual');
+
+-- Salvador (lugar)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'salvador';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Salvador', 'salvador', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'lugar';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Sou chamada de Roma Negra.', 'sou chamada de roma negra', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Fui a primeira capital do Brasil.', 'fui a primeira capital do brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Tenho a Lavagem do Bonfim.', 'tenho a lavagem do bonfim', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Tenho o Elevador Lacerda.', 'tenho o elevador lacerda', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'O Olodum nasceu aqui.', 'o olodum nasceu aqui', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Tenho Cidade Alta e Cidade Baixa.', 'tenho cidade alta e cidade baixa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Tenho o Pelourinho.', 'tenho o pelourinho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Sou a capital da Bahia.', 'sou a capital da bahia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Jorge Amado escreveu muito sobre mim.', 'jorge amado escreveu muito sobre mim', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Sou uma cidade.', 'sou uma cidade', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Fui fundada em 1549.', 'fui fundada em 1549', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Fico na Baía de Todos os Santos.', 'fico na baia de todos os santos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Meu carnaval tem trios elétricos.', 'meu carnaval tem trios eletricos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Sou terra do acarajé.', 'sou terra do acaraje', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'O 2 de Julho é minha data de independência.', 'o 2 de julho e minha data de independencia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Tomé de Sousa me fundou.', 'tome de sousa me fundou', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Fui capital até 1763.', 'fui capital ate 1763', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Tenho o Farol da Barra.', 'tenho o farol da barra', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Minha igreja famosa distribui fitinhas.', 'minha igreja famosa distribui fitinhas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Tenho o Mercado Modelo.', 'tenho o mercado modelo', 'media', 'manual');
 
 -- São Petersburgo (lugar)
 DELETE FROM `cartas` WHERE `qid` = 'Q656' OR `resposta_normalizada` = 'sao petersburgo';
@@ -1675,6 +2430,32 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Ganhei o Nobel de Física de 1921.', 'ganhei o nobel de fisica de 1921', 'media', 'manual');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Einstein', 'einstein');
 
+-- Ariano Suassuna (pessoa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'ariano suassuna';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Ariano Suassuna', 'ariano suassuna', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Fui da Academia Brasileira de Letras.', 'fui da academia brasileira de letras', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Torcia pelo Sport.', 'torcia pelo sport', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Meu pai foi governador da Paraíba.', 'meu pai foi governador da paraiba', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Criei o Movimento Armorial.', 'criei o movimento armorial', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Passei parte da infância em Taperoá.', 'passei parte da infancia em taperoa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Fui secretário de Cultura de Pernambuco.', 'fui secretario de cultura de pernambuco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Nasci na capital da Paraíba, em 1927.', 'nasci na capital da paraiba em 1927', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Escrevi o Romance da Pedra do Reino.', 'escrevi o romance da pedra do reino', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Meu pai foi assassinado em 1930.', 'meu pai foi assassinado em 1930', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Um personagem meu diz: não sei, só sei que foi assim.', 'um personagem meu diz nao sei so sei que foi assim', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Fui professor da UFPE.', 'fui professor da ufpe', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Sou um dos maiores dramaturgos paraibanos.', 'sou um dos maiores dramaturgos paraibanos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Minha peça virou filme com Selton Mello.', 'minha peca virou filme com selton mello', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Morri em 2014.', 'morri em 2014', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Defendia a cultura popular nordestina.', 'defendia a cultura popular nordestina', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Dava aulas-espetáculo pelo Brasil.', 'dava aulas espetaculo pelo brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Vivi em Recife.', 'vivi em recife', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Criei João Grilo e Chicó.', 'criei joao grilo e chico', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Detestava palavras em inglês.', 'detestava palavras em ingles', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Escrevi o Auto da Compadecida.', 'escrevi o auto da compadecida', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Suassuna', 'suassuna');
+
 -- Arthur Conan Doyle (pessoa)
 DELETE FROM `cartas` WHERE `qid` = 'Q35610' OR `resposta_normalizada` = 'arthur conan doyle';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, 'Q35610', 'Arthur Conan Doyle', 'arthur conan doyle', 'https://pt.wikipedia.org/wiki/Arthur_Conan_Doyle', 'Arthur Ignatius Conan Doyle KGStJ, DL foi um escritor e médico escocês, mundialmente famoso por suas 60 histórias sobre o detetive Sherlock Holmes, consideradas uma grande inovação no campo da literatura criminal. Foi um renomado e prolífico escritor cujos trabalhos incluem histórias de ficção científica, novelas históricas, peças e romances, poesias e obras de não-ficção.', 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
@@ -1754,6 +2535,58 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Não me resumo a uma profissão só: tenho mais de uma.', 'nao me resumo a uma profissao so tenho mais de uma', 'dificil', 'derivada_muitas_profissoes');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Minha língua materna é português brasileiro.', 'minha lingua materna e portugues brasileiro', 'dificil', 'P103');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Marighella', 'marighella');
+
+-- Carmen Miranda (pessoa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'carmen miranda';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Carmen Miranda', 'carmen miranda', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Me acusaram de voltar americanizada e respondi cantando.', 'me acusaram de voltar americanizada e respondi cantando', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Fui para os Estados Unidos em 1939.', 'fui para os estados unidos em 1939', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Usava sapatos plataforma altíssimos.', 'usava sapatos plataforma altissimos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Meu grupo de acompanhamento era o Bando da Lua.', 'meu grupo de acompanhamento era o bando da lua', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Vim para o Brasil ainda bebê.', 'vim para o brasil ainda bebe', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Tenho estrela na Calçada da Fama.', 'tenho estrela na calcada da fama', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Morri em 1955, em Beverly Hills.', 'morri em 1955 em beverly hills', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Brilhei na Broadway.', 'brilhei na broadway', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Cantei O que é que a baiana tem?, de Dorival Caymmi.', 'cantei o que e que a baiana tem de dorival caymmi', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Tenho um museu no Aterro do Flamengo.', 'tenho um museu no aterro do flamengo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Meu apelido era Pequena Notável.', 'meu apelido era pequena notavel', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Fiz sucesso com a música Taí, em 1930.', 'fiz sucesso com a musica tai em 1930', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Fiz vários filmes em Hollywood.', 'fiz varios filmes em hollywood', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Usava turbante com frutas.', 'usava turbante com frutas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Fui uma das mulheres mais bem pagas dos Estados Unidos.', 'fui uma das mulheres mais bem pagas dos estados unidos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Usava balangandãs.', 'usava balangandas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Uma multidão acompanhou meu enterro no Rio.', 'uma multidao acompanhou meu enterro no rio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Trabalhei numa loja de chapéus.', 'trabalhei numa loja de chapeus', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Nasci em Portugal, em 1909.', 'nasci em portugal em 1909', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Nos Estados Unidos me chamavam de Brazilian Bombshell.', 'nos estados unidos me chamavam de brazilian bombshell', 'media', 'manual');
+
+-- Charles Chaplin (pessoa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'charles chaplin';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Charles Chaplin', 'charles chaplin', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Casei quatro vezes.', 'casei quatro vezes', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Morei na Suíça.', 'morei na suica', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Criei um vagabundo de bigodinho, chapéu-coco e bengala.', 'criei um vagabundo de bigodinho chapeu coco e bengala', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Tive infância pobre.', 'tive infancia pobre', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Recebi o título de Sir.', 'recebi o titulo de sir', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Compus a música Smile.', 'compus a musica smile', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Fiz O Garoto.', 'fiz o garoto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Ridicularizei Hitler em O Grande Ditador.', 'ridicularizei hitler em o grande ditador', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Fiz Tempos Modernos.', 'fiz tempos modernos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Sou o maior nome da comédia muda.', 'sou o maior nome da comedia muda', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Nasci em Londres, em 1889.', 'nasci em londres em 1889', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Fui um dos fundadores da United Artists.', 'fui um dos fundadores da united artists', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Meu personagem ganhou nome próprio no Brasil.', 'meu personagem ganhou nome proprio no brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Morri no Natal de 1977.', 'morri no natal de 1977', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Fui impedido de voltar aos Estados Unidos em 1952.', 'fui impedido de voltar aos estados unidos em 1952', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Meu caixão foi roubado depois do enterro.', 'meu caixao foi roubado depois do enterro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Minha filha Geraldine virou atriz.', 'minha filha geraldine virou atriz', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Fiz Luzes da Cidade.', 'fiz luzes da cidade', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Ganhei um Oscar honorário em 1972.', 'ganhei um oscar honorario em 1972', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Fui astro do cinema mudo.', 'fui astro do cinema mudo', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Chaplin', 'chaplin');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Carlitos', 'carlitos');
 
 -- Chico Buarque (pessoa)
 DELETE FROM `cartas` WHERE `qid` = 'Q333632' OR `resposta_normalizada` = 'chico buarque';
@@ -1860,6 +2693,32 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Ainda disputou mais três mundiais, tendo alcançado o vice-campeonato em 1990.', 'ainda disputou mais tres mundiais tendo alcancado o vice campeonato em 1990', 'media', 'resumo_wikipedia_2');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Já fui premiado com: Melhor Jogador do Século da FIFA.', 'ja fui premiado com melhor jogador do seculo da fifa', 'facil', 'P166#1');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Não me resumo a uma profissão só: tenho mais de uma.', 'nao me resumo a uma profissao so tenho mais de uma', 'dificil', 'derivada_muitas_profissoes');
+
+-- Dom Pedro II (pessoa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'dom pedro ii';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Dom Pedro II', 'dom pedro ii', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Fui declarado maior de idade aos 14 anos.', 'fui declarado maior de idade aos 14 anos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Me chamavam de Magnânimo.', 'me chamavam de magnanimo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Falava vários idiomas.', 'falava varios idiomas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Minha filha assinou a Lei Áurea.', 'minha filha assinou a lei aurea', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Esse episódio ficou conhecido como Golpe da Maioridade.', 'esse episodio ficou conhecido como golpe da maioridade', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Fui exilado em 1889.', 'fui exilado em 1889', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Meu pai abdicou quando eu tinha 5 anos.', 'meu pai abdicou quando eu tinha 5 anos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Petrópolis era minha cidade de veraneio.', 'petropolis era minha cidade de veraneio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Era apaixonado por ciência e fotografia.', 'era apaixonado por ciencia e fotografia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Sou o segundo imperador com meu nome.', 'sou o segundo imperador com meu nome', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Morri em Paris, em 1891.', 'morri em paris em 1891', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Minha mãe era Maria Leopoldina.', 'minha mae era maria leopoldina', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Casei com Teresa Cristina.', 'casei com teresa cristina', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Um colégio famoso no Rio tem meu nome.', 'um colegio famoso no rio tem meu nome', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Fui o último imperador do Brasil.', 'fui o ultimo imperador do brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'A Guerra do Paraguai aconteceu no meu reinado.', 'a guerra do paraguai aconteceu no meu reinado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Tinha uma barba branca longa.', 'tinha uma barba branca longa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Testei o telefone de Graham Bell nos Estados Unidos, em 1876.', 'testei o telefone de graham bell nos estados unidos em 1876', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Reinei por quase 50 anos.', 'reinei por quase 50 anos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Nasci no Rio de Janeiro, em 1825.', 'nasci no rio de janeiro em 1825', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Pedro II', 'pedro ii');
 
 -- Dunga (pessoa)
 DELETE FROM `cartas` WHERE `qid` = 'Q215890' OR `resposta_normalizada` = 'dunga';
@@ -1994,6 +2853,32 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Em 1999, foi nomeado \"Artista pela Paz\", pela UNESCO.', 'em 1999 foi nomeado artista pela paz pela unesco', 'media', 'resumo_wikipedia_1');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Gilberto Passos Gil Moreira', 'gilberto passos gil moreira');
 
+-- Isaac Newton (pessoa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'isaac newton';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Isaac Newton', 'isaac newton', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Recebi o título de Sir.', 'recebi o titulo de sir', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'A unidade de força leva meu sobrenome.', 'a unidade de forca leva meu sobrenome', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Nasci na Inglaterra.', 'nasci na inglaterra', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Disputei com Leibniz a invenção do cálculo.', 'disputei com leibniz a invencao do calculo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Estudei em Cambridge.', 'estudei em cambridge', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Nasci em 1642, pelo calendário da época.', 'nasci em 1642 pelo calendario da epoca', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Disse que enxerguei longe apoiado em ombros de gigantes.', 'disse que enxerguei longe apoiado em ombros de gigantes', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Decompus a luz branca com um prisma.', 'decompus a luz branca com um prisma', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Fugi da peste e fiz grandes descobertas em casa.', 'fugi da peste e fiz grandes descobertas em casa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Também estudei alquimia.', 'tambem estudei alquimia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Presidi a Royal Society.', 'presidi a royal society', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Dirigi a Casa da Moeda inglesa.', 'dirigi a casa da moeda inglesa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Morri em 1727 e fui enterrado na Abadia de Westminster.', 'morri em 1727 e fui enterrado na abadia de westminster', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Publiquei os Principia em 1687.', 'publiquei os principia em 1687', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Criei três leis do movimento.', 'criei tres leis do movimento', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Nasci no dia de Natal.', 'nasci no dia de natal', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Uma maçã caindo está na minha lenda.', 'uma maca caindo esta na minha lenda', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Expliquei a gravitação universal.', 'expliquei a gravitacao universal', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Criei um telescópio com espelho.', 'criei um telescopio com espelho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Nunca me casei.', 'nunca me casei', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Newton', 'newton');
+
 -- John Locke (pessoa)
 DELETE FROM `cartas` WHERE `qid` = 'Q9353' OR `resposta_normalizada` = 'john locke';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, 'Q9353', 'John Locke', 'john locke', 'https://pt.wikipedia.org/wiki/John_Locke', 'John Locke foi um filósofo e médico inglês, amplamente considerado um dos pensadores mais influentes do Iluminismo e comumente conhecido como o \"pai do liberalismo\". Suas obras importantes incluem Carta sobre a Tolerância (1689), Dois Tratados sobre o Governo (1689/90), ambos publicados anonimamente, e Ensaio sobre o Entendimento Humano (1689/90). Seus escritos sobre tolerância defendem que a religião é uma questão individual e que as igrejas são associações voluntárias, descartando a coerção religiosa e a uniformidade; estes levam à ideia de separação entre Igreja e Estado. Seus Dois Tratados sobre o Governo argumentam a favor de um governo baseado no consentimento dos governados e no direito de revolta contra um governo tirânico que perdeu o consentimento. Acredita-se que os Dois Tratados influenciaram a linguagem que Thomas Jefferson escolheu ao redigir a Declaração de Independência dos Estados Unidos em julho de 1776, durante a Guerra da Independência Americana.', 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
@@ -2018,6 +2903,32 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Tem artigo sobre mim em várias línguas.', 'tem artigo sobre mim em varias linguas', 'dificil', 'generica_5');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Se você me conhece, provavelmente é por: Ensaio acerca do Entendimento Humano.', 'se voce me conhece provavelmente e por ensaio acerca do entendimento humano', 'facil', 'P800');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Meus últimos dias foram em High Laver.', 'meus ultimos dias foram em high laver', 'media', 'P20');
+
+-- Lampião (pessoa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'lampiao';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Lampião', 'lampiao', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Meu apelido vem da luz dos meus tiros.', 'meu apelido vem da luz dos meus tiros', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Nasci em Serra Talhada, Pernambuco.', 'nasci em serra talhada pernambuco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Fui cangaceiro.', 'fui cangaceiro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'O filme Baile Perfumado conta minha história.', 'o filme baile perfumado conta minha historia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Meu nome de batismo começa com V.', 'meu nome de batismo comeca com v', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Nasci em 1898.', 'nasci em 1898', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'O xaxado é a dança do meu bando.', 'o xaxado e a danca do meu bando', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Minha cabeça foi exposta depois da minha morte.', 'minha cabeca foi exposta depois da minha morte', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Era cego de um olho.', 'era cego de um olho', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Tive uma filha chamada Expedita.', 'tive uma filha chamada expedita', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Sou chamado de Rei do Cangaço.', 'sou chamado de rei do cangaco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Fui morto na Grota de Angico, em Sergipe.', 'fui morto na grota de angico em sergipe', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Tentei invadir Mossoró em 1927 e fui repelido.', 'tentei invadir mossoro em 1927 e fui repelido', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Usava óculos.', 'usava oculos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Recebi patente de capitão para combater a Coluna Prestes.', 'recebi patente de capitao para combater a coluna prestes', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Minha companheira era Maria Bonita.', 'minha companheira era maria bonita', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Encontrei o Padre Cícero.', 'encontrei o padre cicero', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Usava chapéu de couro em meia-lua com estrelas.', 'usava chapeu de couro em meia lua com estrelas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Morri em 1938.', 'morri em 1938', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'As volantes da polícia me perseguiam.', 'as volantes da policia me perseguiam', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Virgulino Ferreira da Silva', 'virgulino ferreira da silva');
 
 -- Leonardo da Vinci (pessoa)
 DELETE FROM `cartas` WHERE `resposta_normalizada` = 'leonardo da vinci';
@@ -2124,6 +3035,57 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Joaquim Maria Machado de Assis', 'joaquim maria machado de assis');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Machado', 'machado');
 
+-- Marta (pessoa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'marta';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Marta', 'marta', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Uso a camisa 10.', 'uso a camisa 10', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Sou a maior artilheira da história das Copas.', 'sou a maior artilheira da historia das copas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Nasci em 1986.', 'nasci em 1986', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Pelé me comparou a ele.', 'pele me comparou a ele', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Na Copa de 2019 fiz um discurso emocionado para as meninas.', 'na copa de 2019 fiz um discurso emocionado para as meninas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Fui eleita seis vezes a melhor do mundo pela FIFA.', 'fui eleita seis vezes a melhor do mundo pela fifa', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Ganhei medalhas de prata olímpicas.', 'ganhei medalhas de prata olimpicas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Nasci em Dois Riachos, Alagoas.', 'nasci em dois riachos alagoas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Joguei a Copa de 2019 de batom.', 'joguei a copa de 2019 de batom', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Viajei três dias de ônibus para fazer teste no Rio.', 'viajei tres dias de onibus para fazer teste no rio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Joguei seis Copas do Mundo.', 'joguei seis copas do mundo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Sou a maior jogadora de futebol do Brasil.', 'sou a maior jogadora de futebol do brasil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Joguei no Vasco.', 'joguei no vasco', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Me chamam de Rainha.', 'me chamam de rainha', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Fiz 17 gols em Copas.', 'fiz 17 gols em copas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Um prêmio da FIFA para o gol mais bonito feminino tem meu nome.', 'um premio da fifa para o gol mais bonito feminino tem meu nome', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Sou embaixadora da ONU Mulheres.', 'sou embaixadora da onu mulheres', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Brilhei no Umeå, da Suécia.', 'brilhei no umea da suecia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Joguei no Orlando Pride, nos Estados Unidos.', 'joguei no orlando pride nos estados unidos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Fui a primeira mulher na Calçada da Fama do Maracanã.', 'fui a primeira mulher na calcada da fama do maracana', 'media', 'manual');
+INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Marta Vieira da Silva', 'marta vieira da silva');
+
+-- Michael Jackson (pessoa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'michael jackson';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Michael Jackson', 'michael jackson', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Minha turnê This Is It nunca aconteceu.', 'minha turne this is it nunca aconteceu', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Coescrevi We Are the World.', 'coescrevi we are the world', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Comecei cantando com meus irmãos.', 'comecei cantando com meus irmaos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Nasci em Gary, nos Estados Unidos, em 1958.', 'nasci em gary nos estados unidos em 1958', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Quincy Jones produziu meus discos mais famosos.', 'quincy jones produziu meus discos mais famosos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Gravei um clipe no Pelourinho e numa favela do Rio.', 'gravei um clipe no pelourinho e numa favela do rio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Nosso grupo de irmãos tinha o número 5 no nome.', 'nosso grupo de irmaos tinha o numero 5 no nome', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Casei com a filha de Elvis Presley.', 'casei com a filha de elvis presley', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Sou o Rei do Pop.', 'sou o rei do pop', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Meu álbum Thriller é o mais vendido da história.', 'meu album thriller e o mais vendido da historia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Popularizei o passo moonwalk.', 'popularizei o passo moonwalk', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Usava uma luva brilhante numa mão só.', 'usava uma luva brilhante numa mao so', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Cantei Billie Jean.', 'cantei billie jean', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Meu rancho se chamava Neverland.', 'meu rancho se chamava neverland', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Tive um chimpanzé chamado Bubbles.', 'tive um chimpanze chamado bubbles', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Morri em 2009.', 'morri em 2009', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Tinha vitiligo.', 'tinha vitiligo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Meu cabelo pegou fogo gravando um comercial.', 'meu cabelo pegou fogo gravando um comercial', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Usava chapéu e meias brancas.', 'usava chapeu e meias brancas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Lancei o álbum Bad.', 'lancei o album bad', 'media', 'manual');
+
 -- Michael Jordan (pessoa)
 DELETE FROM `cartas` WHERE `qid` = 'Q41421' OR `resposta_normalizada` = 'michael jordan';
 INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, 'Q41421', 'Michael Jordan', 'michael jordan', 'https://pt.wikipedia.org/wiki/Michael_Jordan', 'Michael Jeffrey Jordan é um empresário e ex-basquetebolista estadunidense que atuava como ala-armador. Considerado por muitos como o melhor jogador de basquete de todos os tempos, é considerado também como um dos mais importantes desportistas masculinos da história. Atualmente é proprietário da 23XI Racing, equipe da NASCAR, onde seus carros levam os números 23, pilotado por Bubba Wallace, e 45, pilotado por Kurt Busch em 2022 e Tyler Reddick em 2023. Além disso, foi proprietário do Charlotte Hornets, equipe da NBA.', 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
@@ -2173,6 +3135,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Minha profissão é Theaterintendant.', 'minha profissao e theaterintendant', 'media', 'P106');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Vim ao mundo na década de 1620.', 'vim ao mundo na decada de 1620', 'dificil', 'P569');
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Trabalhei como satirico.', 'trabalhei como satirico', 'media', 'P106#1');
+
+-- Monteiro Lobato (pessoa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'monteiro lobato';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Monteiro Lobato', 'monteiro lobato', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Morri em 1948.', 'morri em 1948', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Criei um sabugo de milho sábio.', 'criei um sabugo de milho sabio', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Critiquei duramente uma exposição de Anita Malfatti.', 'critiquei duramente uma exposicao de anita malfatti', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'A Cuca aparece nas minhas histórias.', 'a cuca aparece nas minhas historias', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Trabalhei como adido comercial nos Estados Unidos.', 'trabalhei como adido comercial nos estados unidos', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Meu aniversário é o Dia Nacional do Livro Infantil.', 'meu aniversario e o dia nacional do livro infantil', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Defendi que o petróleo era nosso.', 'defendi que o petroleo era nosso', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Minhas histórias viraram série de TV várias vezes.', 'minhas historias viraram serie de tv varias vezes', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Fundei uma editora.', 'fundei uma editora', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Me formei em Direito.', 'me formei em direito', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Criei uma boneca de pano falante.', 'criei uma boneca de pano falante', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Fui preso na era Vargas.', 'fui preso na era vargas', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Criei o personagem Jeca Tatu.', 'criei o personagem jeca tatu', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Nasci em Taubaté, em 1882.', 'nasci em taubate em 1882', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Fui fazendeiro.', 'fui fazendeiro', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Criei Dona Benta e Tia Nastácia.', 'criei dona benta e tia nastacia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Parte da minha obra é criticada por racismo.', 'parte da minha obra e criticada por racismo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Escrevi sobre o Saci.', 'escrevi sobre o saci', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Criei o Sítio do Picapau Amarelo.', 'criei o sitio do picapau amarelo', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Escrevi Reinações de Narizinho.', 'escrevi reinacoes de narizinho', 'media', 'manual');
 
 -- Niels Bohr (pessoa)
 DELETE FROM `cartas` WHERE `qid` = 'Q7085' OR `resposta_normalizada` = 'niels bohr';
@@ -2433,6 +3420,31 @@ INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificu
 INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Minha altura fica entre 1,60 m e 1,70 m.', 'minha altura fica entre 1 60 m e 1 70 m', 'dificil', 'P2048');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Lenine', 'lenine');
 INSERT IGNORE INTO `respostas_alternativas` (`carta_id`, `texto`, `texto_normalizado`) VALUES (@carta, 'Vladimir Lenin', 'vladimir lenin');
+
+-- Walt Disney (pessoa)
+DELETE FROM `cartas` WHERE `resposta_normalizada` = 'walt disney';
+INSERT INTO `cartas` (`categoria_id`, `qid`, `resposta`, `resposta_normalizada`, `url_fonte`, `resumo_fonte`, `status`) SELECT `id`, NULL, 'Walt Disney', 'walt disney', NULL, NULL, 'aprovada' FROM `categorias` WHERE `chave` = 'pessoa';
+SET @carta := LAST_INSERT_ID();
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 1, 'Visitei o Brasil em 1941.', 'visitei o brasil em 1941', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 2, 'Existe a lenda de que meu corpo foi congelado.', 'existe a lenda de que meu corpo foi congelado', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 3, 'Meu sobrenome virou um império do entretenimento.', 'meu sobrenome virou um imperio do entretenimento', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 4, 'Meu primeiro estúdio faliu.', 'meu primeiro estudio faliu', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 5, 'Fui motorista de ambulância na Primeira Guerra.', 'fui motorista de ambulancia na primeira guerra', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 6, 'Usava bigode.', 'usava bigode', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 7, 'Fui a primeira voz desse rato.', 'fui a primeira voz desse rato', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 8, 'Criei um rato famoso.', 'criei um rato famoso', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 9, 'Sou recordista de Oscars.', 'sou recordista de oscars', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 10, 'Lancei Fantasia.', 'lancei fantasia', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 11, 'Sonhei com o EPCOT.', 'sonhei com o epcot', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 12, 'Não vi meu parque da Flórida pronto.', 'nao vi meu parque da florida pronto', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 13, 'Nasci em Chicago, em 1901.', 'nasci em chicago em 1901', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 14, 'Abri meu primeiro parque na Califórnia, em 1955.', 'abri meu primeiro parque na california em 1955', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 15, 'Esse filme foi Branca de Neve.', 'esse filme foi branca de neve', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 16, 'Morri em 1966.', 'morri em 1966', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 17, 'Perdi os direitos de um coelho chamado Oswald.', 'perdi os direitos de um coelho chamado oswald', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 18, 'Lancei o primeiro longa de animação colorido, em 1937.', 'lancei o primeiro longa de animacao colorido em 1937', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 19, 'Trabalhei com meu irmão Roy.', 'trabalhei com meu irmao roy', 'media', 'manual');
+INSERT INTO `dicas` (`carta_id`, `numero`, `texto`, `texto_normalizado`, `dificuldade`, `propriedade_origem`) VALUES (@carta, 20, 'Criei o Zé Carioca.', 'criei o ze carioca', 'media', 'manual');
 
 -- Wolfgang Amadeus Mozart (pessoa)
 DELETE FROM `cartas` WHERE `qid` = 'Q254' OR `resposta_normalizada` = 'wolfgang amadeus mozart';
