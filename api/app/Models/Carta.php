@@ -43,6 +43,19 @@ final class Carta extends Model
         ) !== null;
     }
 
+    /**
+     * Apaga a carta que tem esta resposta, se existir. As dicas e as
+     * respostas alternativas somem junto, pela FK com ON DELETE CASCADE.
+     * Usado pelo importador para substituir a carta em vez de duplicar.
+     */
+    public function excluirPorRespostaNormalizada(string $normalizada): int
+    {
+        return $this->executar(
+            'DELETE FROM cartas WHERE resposta_normalizada = :normalizada',
+            ['normalizada' => $normalizada]
+        )->rowCount();
+    }
+
     /** @return array<int,string> QIDs ja cadastrados, para filtrar o SPARQL. */
     public function qidsExistentes(): array
     {
