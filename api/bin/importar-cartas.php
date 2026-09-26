@@ -166,7 +166,7 @@ foreach ($cartas as $indice => $bruta) {
     }
 
     $dicas = [];
-    $vazou = null;
+    $problemas = [];
     $textosVistos = [];
 
     foreach (array_values($dicasBrutas) as $posicao => $dicaBruta) {
@@ -175,26 +175,26 @@ foreach ($cartas as $indice => $bruta) {
             : trim((string) $dicaBruta);
 
         if ($texto === '') {
-            $vazou = sprintf('dica %d esta vazia', $posicao + 1);
-            break;
+            $problemas[] = sprintf('dica %d esta vazia', $posicao + 1);
+            continue;
         }
 
         if (mb_strlen($texto) > 170) {
-            $vazou = sprintf('dica %d passa de 170 caracteres', $posicao + 1);
-            break;
+            $problemas[] = sprintf('dica %d passa de 170 caracteres', $posicao + 1);
+            continue;
         }
 
         // Regra 43: nenhuma dica pode entregar a resposta.
         if ($verificador->vazaResposta($texto, $resposta, $alternativas)) {
-            $vazou = sprintf('a dica %d entrega a resposta -> "%s"', $posicao + 1, $texto);
-            break;
+            $problemas[] = sprintf('a dica %d entrega a resposta -> "%s"', $posicao + 1, $texto);
+            continue;
         }
 
         $normalizada = Normalizador::normalizar($texto);
 
         if (isset($textosVistos[$normalizada])) {
-            $vazou = sprintf('a dica %d repete a dica %d', $posicao + 1, $textosVistos[$normalizada]);
-            break;
+            $problemas[] = sprintf('a dica %d repete a dica %d', $posicao + 1, $textosVistos[$normalizada]);
+            continue;
         }
 
         $textosVistos[$normalizada] = $posicao + 1;
@@ -222,8 +222,15 @@ foreach ($cartas as $indice => $bruta) {
         ];
     }
 
-    if ($vazou !== null) {
-        $recusar($vazou);
+    if ($problemas !== []) {
+        // Todos os problemas da carta de uma vez: assim da para corrigir a
+        // carta inteira numa rodada so, em vez de descobrir um por vez.
+        $recusar(implode('; ', $problemas));
+        continue;
+    }
+
+    if (count($dicas) !== $totalDicas) {
+        $recusar(sprintf('sobraram %d dicas boas de %d', count($dicas), $totalDicas));
         continue;
     }
 
