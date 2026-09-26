@@ -39,12 +39,17 @@ services:
       # O Wikimedia exige um contato real no user agent.
       - PERFIL_USER_AGENT=JogoPerfil/1.0 (https://perfil.abntech.com.br; contato@abntech.com.br) PHP/curl
       # Quanto maior o minimo de sitelinks, mais famoso o tema sorteado.
-      - PERFIL_MINIMO_SITELINKS=120
+      - PERFIL_MINIMO_SITELINKS=180
       - PERFIL_DESLOCAMENTO=0   # 0 = so os temas mais conhecidos
-      - PERFIL_MIX_DIFICIL=7
+      - PERFIL_MINIMO_SITELINKS_BR=25
+      - PERFIL_MIX_DIFICIL=5
       - PERFIL_MIX_MEDIA=7
-      - PERFIL_MIX_FACIL=6
+      - PERFIL_MIX_FACIL=8
       - PERFIL_APROVAR_AUTO=false
+
+      # Ligue numa subida so para levar o cartas.sql novo a um servidor que
+      # ja tem baralho. Depois devolva para false.
+      - PERFIL_ATUALIZAR_BARALHO=false
     deploy:
       mode: replicated
       replicas: 1
