@@ -1,9 +1,8 @@
 # =====================================================================
 # Stack do jogo Perfil para Docker Swarm / Portainer.
 #
-# Antes de subir, troque o que esta marcado com TROQUE:
-#   - o dominio nas labels do Traefik
-#   - a imagem (seu usuario do Docker Hub)
+# O dominio e a imagem ja estao preenchidos. Antes de subir, troque o que
+# esta marcado com TROQUE:
 #   - as senhas do MySQL
 #   - o hash da senha do painel /admin, gerado com:
 #       php -r "echo password_hash('suasenha', PASSWORD_DEFAULT);"
@@ -15,7 +14,7 @@ version: "3.7"
 
 services:
   perfil:
-    image: TROQUE-usuario-dockerhub/perfil:latest   # TROQUE
+    image: adrielferreira/perfil:latest
     networks:
       - network_public
     environment:
@@ -38,12 +37,13 @@ services:
 
       # --- Gerador de cartas ---
       # O Wikimedia exige um contato real no user agent.
-      - PERFIL_USER_AGENT=JogoPerfil/1.0 (https://TROQUE-dominio; contato@edidesk.com.br) PHP/curl
+      - PERFIL_USER_AGENT=JogoPerfil/1.0 (https://perfil.abntech.com.br; contato@abntech.com.br) PHP/curl
       # Quanto maior o minimo de sitelinks, mais famoso o tema sorteado.
-      - PERFIL_MINIMO_SITELINKS=60
-      - PERFIL_MIX_DIFICIL=11
-      - PERFIL_MIX_MEDIA=6
-      - PERFIL_MIX_FACIL=3
+      - PERFIL_MINIMO_SITELINKS=120
+      - PERFIL_DESLOCAMENTO=0   # 0 = so os temas mais conhecidos
+      - PERFIL_MIX_DIFICIL=7
+      - PERFIL_MIX_MEDIA=7
+      - PERFIL_MIX_FACIL=6
       - PERFIL_APROVAR_AUTO=false
     deploy:
       mode: replicated
@@ -57,7 +57,7 @@ services:
           memory: 512M
       labels:
         - traefik.enable=true
-        - traefik.http.routers.perfil.rule=Host(`perfil.edidesk.com.br`)   # TROQUE
+        - traefik.http.routers.perfil.rule=Host(`perfil.abntech.com.br`)
         - traefik.http.routers.perfil.entrypoints=websecure
         - traefik.http.routers.perfil.tls.certresolver=letsencryptresolver
         - traefik.http.services.perfil.loadbalancer.server.port=80

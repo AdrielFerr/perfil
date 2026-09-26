@@ -26,11 +26,13 @@
 </IfModule>
 
 # Fontes e dados nunca sao servidos: README, dump SQL, .env, configs.
-<FilesMatch "\.(sql|md|log|lock|ini|sh|bat|dist)$">
+# O yml entrou na lista porque o stack de producao carrega senha do banco
+# e hash do painel: nenhum arquivo de infraestrutura pode sair pelo HTTP.
+<FilesMatch "\.(sql|md|log|lock|ini|sh|bat|dist|yml|yaml|conf)$">
     Require all denied
 </FilesMatch>
 
-<FilesMatch "^(\.env.*|\.gitignore|composer\.json|package\.json|package-lock\.json|vite\.config\.js)$">
+<FilesMatch "^(\.env.*|\.git.*|\.docker.*|Dockerfile|composer\.json|package\.json|package-lock\.json|vite\.config\.js)$">
     Require all denied
 </FilesMatch>
 
