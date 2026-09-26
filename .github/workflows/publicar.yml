@@ -1,25 +1,42 @@
 # =====================================================================
-# Compila a imagem do jogo e publica no GitHub Container Registry.
+# Compila a imagem do jogo e publica no Docker Hub.
 #
-# Depois do push, se existir o segredo PORTAINER_WEBHOOK, o workflow
-# chama o webhook do servico no Portainer e o Swarm puxa a imagem nova.
-# O webhook sai em: Portainer > Stacks > perfil > servico > Webhook.
+# O GATILHO E ESTE BLOCO `on:` AQUI EMBAIXO. Nao existe nada para ligar
+# na interface do GitHub: o que se cadastra la sao os segredos, em
+# Settings > Secrets and variables > Actions.
 #
-# Segredos usados (Settings > Secrets and variables > Actions):
-#   PORTAINER_WEBHOOK  (opcional) URL do webhook de atualizacao
-# O GITHUB_TOKEN ja vem pronto: nao precisa criar nada para o registry.
+# Quando roda e o que publica:
+#
+#   pull request para a main  ->  usuario/perfil:pr-12
+#                                 imagem do PR, para testar sem tocar
+#                                 no que o servidor esta usando
+#
+#   push na main              ->  usuario/perfil:latest
+#                                 e usuario/perfil:sha-abc1234
+#                                 depois avisa o Portainer, se houver
+#                                 o segredo PORTAINER_WEBHOOK
+#
+#   tag v1.2.3                ->  usuario/perfil:v1.2.3
+#
+#   botao "Run workflow"      ->  roda na hora, para testar
+#
+# Segredos usados:
+#   DOCKERHUB_USERNAME   usuario do Docker Hub
+#   DOCKERHUB_TOKEN      token de acesso (Account Settings > Security)
+#   PORTAINER_WEBHOOK    opcional, URL do webhook do servico
 # =====================================================================
 name: publicar imagem
 
 on:
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
     tags: ['v*']
   workflow_dispatch:
 
 env:
-  REGISTRO: ghcr.io
-  IMAGEM: ${{ github.repository }}
+  IMAGEM: perfil
 
 jobs:
   imagem:
@@ -27,7 +44,6 @@ jobs:
 
     permissions:
       contents: read
-      packages: write
 
     steps:
       - name: Baixar o repositorio
@@ -36,21 +52,21 @@ jobs:
       - name: Preparar o Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Entrar no registry
+      - name: Entrar no Docker Hub
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRO }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Montar as etiquetas
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRO }}/${{ env.IMAGEM }}
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGEM }}
           tags: |
+            type=ref,event=pr
             type=raw,value=latest,enable={{is_default_branch}}
-            type=sha,format=short
+            type=sha,format=short,enable={{is_default_branch}}
             type=ref,event=tag
 
       - name: Compilar e publicar
@@ -63,10 +79,18 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Dizer o que saiu
+        run: |
+          echo "### Imagem publicada" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo "${{ steps.meta.outputs.tags }}" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
       # O contexto 'secrets' nao vale dentro de 'if', entao o valor passa
-      # pelo env antes de ser testado.
+      # pelo env antes de ser testado. So a main avisa o servidor: imagem
+      # de PR existe para ser testada, nao para entrar em producao.
       - name: Avisar o Portainer
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         env:
           WEBHOOK: ${{ secrets.PORTAINER_WEBHOOK }}
         run: |

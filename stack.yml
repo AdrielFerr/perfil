@@ -3,7 +3,7 @@
 #
 # Antes de subir, troque o que esta marcado com TROQUE:
 #   - o dominio nas labels do Traefik
-#   - a imagem (usuario/organizacao do GitHub)
+#   - a imagem (seu usuario do Docker Hub)
 #   - as senhas do MySQL
 #   - o hash da senha do painel /admin, gerado com:
 #       php -r "echo password_hash('suasenha', PASSWORD_DEFAULT);"
@@ -15,7 +15,7 @@ version: "3.7"
 
 services:
   perfil:
-    image: ghcr.io/TROQUE-usuario/perfil:latest   # TROQUE
+    image: TROQUE-usuario-dockerhub/perfil:latest   # TROQUE
     networks:
       - network_public
     environment:

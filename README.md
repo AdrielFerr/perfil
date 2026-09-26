@@ -394,7 +394,44 @@ O repositório já vem com tudo montado para esse caminho:
 | `cartas.sql` | O baralho versionado, importado na primeira subida |
 | `api/config/config.ambiente.php` | Configuração lida de variáveis de ambiente, sem senha na imagem |
 | `stack.yml` | Stack do Swarm com Traefik e MySQL, no formato que o Portainer espera |
-| `.github/workflows/publicar.yml` | Compila e publica a imagem no GHCR a cada push na `main` |
+| `.github/workflows/publicar.yml` | Compila e publica a imagem no Docker Hub: PR, push na `main` e tags |
+
+**Onde fica o gatilho**
+
+Não se liga gatilho pela interface do GitHub. Ele mora dentro do próprio
+arquivo do workflow, no bloco `on:` de
+[.github/workflows/publicar.yml](.github/workflows/publicar.yml):
+
+```yaml
+on:
+  pull_request:
+    branches: [main]      # abriu ou atualizou PR para a main
+  push:
+    branches: [main]      # mergeou na main
+    tags: ['v*']          # criou uma tag de versão
+  workflow_dispatch:      # botão "Run workflow" na aba Actions
+```
+
+Na interface você cadastra apenas os segredos, em
+**Settings → Secrets and variables → Actions**:
+
+| Segredo | Para que serve |
+| --- | --- |
+| `DOCKERHUB_USERNAME` | Usuário do Docker Hub. Também vira o namespace da imagem |
+| `DOCKERHUB_TOKEN` | Token de acesso, em Docker Hub → Account Settings → Security |
+| `PORTAINER_WEBHOOK` | Opcional. URL do webhook do serviço, para o Swarm puxar a imagem nova |
+
+**O que cada evento publica**
+
+| Evento | Tag publicada | Avisa o servidor? |
+| --- | --- | --- |
+| Pull request para a `main` | `usuario/perfil:pr-12` | Não |
+| Push na `main` | `usuario/perfil:latest` e `:sha-abc1234` | Sim, se houver webhook |
+| Tag `v1.2.3` | `usuario/perfil:v1.2.3` | Não |
+
+A imagem do PR sai numa tag própria de propósito: dá para subir `:pr-12` num
+ambiente de teste sem tocar no `:latest` que o servidor está rodando. Quem entra
+em produção é o merge.
 
 **Como fica dentro do container**
 
@@ -406,10 +443,10 @@ O repositório já vem com tudo montado para esse caminho:
 
 **Passo a passo**
 
-1. Suba o projeto para o GitHub. O workflow publica em
-   `ghcr.io/<usuario>/<repositorio>:latest` a cada push na `main`.
-2. Em **Settings → Actions → General**, confirme que o workflow pode escrever
-   em pacotes. O `GITHUB_TOKEN` já basta: não precisa criar token nenhum.
+1. Cadastre `DOCKERHUB_USERNAME` e `DOCKERHUB_TOKEN` nos segredos do
+   repositório. O workflow publica em `<usuario>/perfil` no Docker Hub.
+2. Abra um pull request ou faça um push na `main`. A aba **Actions** mostra a
+   imagem publicada no resumo da execução.
 3. Copie o `stack.yml` para o Portainer e troque tudo que está marcado com
    `TROQUE`: domínio, nome da imagem, senhas do MySQL e o hash do admin.
 4. Gere o hash da senha do painel com:
