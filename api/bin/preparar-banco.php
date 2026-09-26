@@ -109,6 +109,81 @@ if (!$temTabelas) {
 }
 
 // -------------------------------------------------------------------------
+// Colunas que nasceram depois do primeiro deploy.
+//
+// O bloco acima so roda com o banco vazio, entao um servidor que ja estava
+// no ar nunca receberia coluna nova: o codigo novo subia, o INSERT pedia uma
+// coluna que nao existia e a partida parava de comecar. E o que aconteceu
+// com `categorias`.
+//
+// A lista abaixo e conferida a cada subida. Cada entrada so e aplicada se a
+// coluna faltar, entao rodar de novo nao custa nada e nao apaga dado.
+// MySQL 8 nao tem ADD COLUMN IF NOT EXISTS: a checagem vai na mao.
+// -------------------------------------------------------------------------
+$colunasEsperadas = [
+    [
+        'tabela'    => 'partidas',
+        'coluna'    => 'eliminados_carta',
+        'definicao' => "JSON NULL COMMENT 'ids dos jogadores fora da carta atual' AFTER `dicas_reveladas`",
+    ],
+    [
+        'tabela'    => 'partidas',
+        'coluna'    => 'categorias',
+        'definicao' => "JSON NULL COMMENT 'temas escolhidos na criacao; vazio = todos' AFTER `pontuacao_vitoria`",
+    ],
+];
+
+$existeColuna = static function (PDO $pdo, string $tabela, string $coluna): bool {
+    $consulta = $pdo->prepare(
+        'SELECT 1 FROM information_schema.COLUMNS
+          WHERE TABLE_SCHEMA = DATABASE()
+            AND TABLE_NAME = :tabela
+            AND COLUMN_NAME = :coluna
+          LIMIT 1'
+    );
+    $consulta->execute(['tabela' => $tabela, 'coluna' => $coluna]);
+
+    return $consulta->fetchColumn() !== false;
+};
+
+$adicionadas = 0;
+
+foreach ($colunasEsperadas as $esperada) {
+    if ($existeColuna($pdo, $esperada['tabela'], $esperada['coluna'])) {
+        continue;
+    }
+
+    try {
+        $pdo->exec(sprintf(
+            'ALTER TABLE `%s` ADD COLUMN `%s` %s',
+            $esperada['tabela'],
+            $esperada['coluna'],
+            $esperada['definicao']
+        ));
+
+        fwrite(STDOUT, sprintf(
+            "[perfil] Coluna %s.%s criada.\n",
+            $esperada['tabela'],
+            $esperada['coluna']
+        ));
+
+        $adicionadas++;
+    } catch (PDOException $e) {
+        fwrite(STDERR, sprintf(
+            "[perfil] Falha ao criar %s.%s: %s\n",
+            $esperada['tabela'],
+            $esperada['coluna'],
+            $e->getMessage()
+        ));
+        exit(1);
+    }
+}
+
+if ($adicionadas === 0) {
+    fwrite(STDOUT, "[perfil] Estrutura em dia.\n");
+}
+
+// -------------------------------------------------------------------------
 // Baralho. Importado quando nao ha nenhuma carta aprovada, o que cobre tanto
 // a primeira subida quanto um banco que ficou vazio. Com cartas no lugar, o
 // arquivo nao e tocado: ninguem perde o que gerou e aprovou no painel.
@@ -122,9 +197,26 @@ if (!is_file($cartas)) {
 
 $aprovadas = (int) $pdo->query("SELECT COUNT(*) FROM cartas WHERE status = 'aprovada'")->fetchColumn();
 
-if ($aprovadas > 0) {
+// PERFIL_ATUALIZAR_BARALHO=true manda importar mesmo com o acervo cheio. E o
+// jeito de levar cartas novas para um servidor que ja esta rodando.
+//
+// Nao e destrutivo por acidente: o cartas.sql apaga e reinsere carta por
+// carta, pelo qid ou pela resposta, entao carta que voce gerou no painel e
+// nao esta no arquivo continua de pe. O que se perde e a contagem de
+// vezes_jogada das cartas substituidas, e uma partida em andamento que
+// esteja justo numa delas puxa carta nova.
+$forcar = in_array(strtolower((string) (getenv('PERFIL_ATUALIZAR_BARALHO') ?: '')), ['1', 'true', 'sim'], true);
+
+if ($aprovadas > 0 && !$forcar) {
     fwrite(STDOUT, sprintf("[perfil] Ja ha %d cartas aprovadas. Baralho mantido.\n", $aprovadas));
     exit(0);
+}
+
+if ($aprovadas > 0) {
+    fwrite(STDOUT, sprintf(
+        "[perfil] PERFIL_ATUALIZAR_BARALHO ligado: atualizando as %d cartas com o cartas.sql.\n",
+        $aprovadas
+    ));
 }
 
 fwrite(STDOUT, "[perfil] Importando o baralho de cartas.sql.\n");
