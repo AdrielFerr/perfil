@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { api, memoriaLocal } from '../services/api'
 import { Botao, MensagemErro } from '../components/Basicos'
@@ -18,6 +18,9 @@ const AVATARES = [
 
 const PONTUACOES = [30, 50, 70, 100]
 
+// Regra da casa: nenhum tema marcado vale como 'todos'. E o padrao.
+const TODOS_OS_TEMAS = ['pessoa', 'lugar', 'ano', 'coisa']
+
 function novoJogador(indice) {
   return {
     chave: `jogador-${Date.now()}-${indice}`,
@@ -34,9 +37,33 @@ export function TelaCadastro() {
 
   const [jogadores, definirJogadores] = useState([novoJogador(0), novoJogador(1)])
   const [pontuacaoVitoria, definirPontuacaoVitoria] = useState(50)
+  const [temas, definirTemas] = useState(TODOS_OS_TEMAS)
+  const [categorias, definirCategorias] = useState([])
   const [editando, definirEditando] = useState(null)
   const [enviando, definirEnviando] = useState(false)
   const [erro, definirErro] = useState(null)
+
+  // As categorias vem do servidor: nome, cor e quantas cartas cada uma tem.
+  useEffect(() => {
+    api
+      .categorias()
+      .then((dados) => definirCategorias(dados.categorias))
+      .catch(() => definirCategorias([]))
+  }, [])
+
+  const alternarTema = (chave) => {
+    vibrar(VIBRACAO.toque)
+    definirTemas((atuais) =>
+      atuais.includes(chave) ? atuais.filter((t) => t !== chave) : [...atuais, chave]
+    )
+  }
+
+  const sortearTema = () => {
+    vibrar(VIBRACAO.toque)
+    const comCartas = categorias.filter((c) => c.aprovadas > 0)
+    if (comCartas.length === 0) return
+    definirTemas([comCartas[Math.floor(Math.random() * comCartas.length)].chave])
+  }
 
   const mudarJogador = (chave, campo, valor) => {
     definirJogadores((atuais) =>
@@ -72,6 +99,11 @@ export function TelaCadastro() {
       return
     }
 
+    if (temas.length === 0) {
+      definirErro({ mensagem: 'Escolha pelo menos um tema para o baralho.' })
+      return
+    }
+
     const nomes = limpos.map((jogador) => jogador.nome.toLowerCase())
     if (new Set(nomes).size !== nomes.length) {
       definirErro({ mensagem: 'Dois jogadores estão com o mesmo nome. Deixe cada um diferente.' })
@@ -84,6 +116,7 @@ export function TelaCadastro() {
       const estado = await api.criarPartida({
         jogadores: limpos,
         pontuacaoVitoria,
+        categorias: temas,
       })
 
       memoriaLocal.guardarPartida(estado.partida.id)
@@ -213,6 +246,48 @@ export function TelaCadastro() {
           </Botao>
         </div>
 
+        {/* ---------------- Temas do baralho ---------------- */}
+        <div className="pilha pilha--apertada">
+          <div className="campo__rotulo linha-rotulo">
+            <span>Temas do baralho</span>
+            <button type="button" className="botao-texto" onClick={sortearTema}>
+              🎲 sortear um
+            </button>
+          </div>
+
+          <div className="temas">
+            {categorias.map((categoria) => {
+              const marcado = temas.includes(categoria.chave)
+              const vazia = categoria.aprovadas === 0
+
+              return (
+                <button
+                  key={categoria.chave}
+                  type="button"
+                  className={`tema${marcado ? ' tema--marcado' : ''}`}
+                  style={{ '--cor-tema': categoria.cor }}
+                  onClick={() => alternarTema(categoria.chave)}
+                  disabled={vazia}
+                  aria-pressed={marcado}
+                >
+                  <span className="tema__icone" aria-hidden="true">
+                    {categoria.icone}
+                  </span>
+                  <span className="tema__nome">{categoria.nome}</span>
+                  <span className="tema__conta">
+                    {vazia ? 'sem cartas' : `${categoria.aprovadas} cartas`}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
+
+          <p className="pequeno apagado">
+            {temas.length === TODOS_OS_TEMAS.length
+              ? 'O baralho inteiro entra na partida.'
+              : `Só ${temas.length === 1 ? 'este tema' : 'estes temas'} vão sair nas cartas.`}
+          </p>
+        </div>
         {/* ---------------- Pontuação (regra 27) ---------------- */}
         <div className="pilha pilha--apertada">
           <div className="campo__rotulo">Vence com quantos pontos</div>

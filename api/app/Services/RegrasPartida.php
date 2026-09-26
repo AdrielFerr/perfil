@@ -69,7 +69,8 @@ final class RegrasPartida
     /**
      * @param array<int,array{nome:string,cor:string,avatar:string}> $jogadores
      */
-    public function criar(array $jogadores, int $pontuacaoVitoria): array
+    /** @param array<int,string> $categorias temas escolhidos; vazio = todos */
+    public function criar(array $jogadores, int $pontuacaoVitoria, array $categorias = []): array
     {
         $minimo = (int) Configuracao::obter('jogo.minimo_jogadores', 2);
         $maximo = (int) Configuracao::obter('jogo.maximo_jogadores', 6);
@@ -89,7 +90,7 @@ final class RegrasPartida
         Database::iniciarTransacao();
 
         try {
-            $partidaId = $this->partidas->criar($this->gerarCodigo(), $pontuacaoVitoria);
+            $partidaId = $this->partidas->criar($this->gerarCodigo(), $pontuacaoVitoria, $categorias);
 
             $primeiroId = null;
             foreach (array_values($jogadores) as $indice => $jogador) {
@@ -581,12 +582,24 @@ final class RegrasPartida
 
     private function sortearNovaCarta(int $partidaId): void
     {
-        $carta = $this->cartas->sortearParaPartida($partidaId);
+        // Respeita os temas escolhidos na criacao da partida.
+        $partidaAtual = $this->partidas->carregar($partidaId);
+        $temas = $partidaAtual['categorias'] ?? [];
+
+        $carta = $this->cartas->sortearParaPartida($partidaId, $temas);
 
         if ($carta === null) {
+            // Com tema escolhido a mensagem precisa dizer isso, senao o jogador
+            // acha que o baralho inteiro acabou.
             throw ExcecaoHttp::indisponivel(
-                'Acabaram as cartas aprovadas disponiveis para esta partida. '
-                . 'Gere mais cartas no painel /admin.'
+                $temas === []
+                    ? 'Acabaram as cartas aprovadas disponiveis para esta partida. '
+                      . 'Gere mais cartas no painel /admin.'
+                    : sprintf(
+                        'Acabaram as cartas destes temas: %s. Comece outra partida com mais temas '
+                        . 'ou gere mais cartas no painel /admin.',
+                        implode(', ', $temas)
+                    )
             );
         }
 

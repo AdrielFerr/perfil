@@ -1,0 +1,20 @@
+# Candidatos da categoria COISA, recorte BRASIL.
+#
+# Coisa de origem brasileira (P495 = Q155): filme, novela, album, prato,
+# jogo. E o recorte que traz o que a mesa cresceu vendo.
+#
+# Marcadores trocados pelo PHP: %FOCO% %MIN_SITELINKS% %LIMITE% %DESLOCAMENTO%
+SELECT ?item ?itemLabel ?artigo ?sitelinks WHERE {
+  ?item wdt:P31 wd:%FOCO% ;
+        wdt:P495 wd:Q155 ;
+        wikibase:sitelinks ?sitelinks .
+  FILTER(?sitelinks >= %MIN_SITELINKS%)
+
+  ?artigo schema:about ?item ;
+          schema:isPartOf <https://pt.wikipedia.org/> .
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt,pt-br,en". }
+}
+ORDER BY DESC(?sitelinks)
+LIMIT %LIMITE%
+OFFSET %DESLOCAMENTO%

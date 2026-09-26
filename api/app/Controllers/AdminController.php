@@ -290,11 +290,18 @@ final class AdminController extends Controller
             $categoria = $this->exigirOpcao($req, 'categoria', ['pessoa', 'lugar', 'ano', 'coisa']);
         }
 
+        // Recorte opcional: 'brasil' so traz tema brasileiro.
+        $recorte = null;
+
+        if (!empty($req->campo('recorte'))) {
+            $recorte = $this->exigirOpcao($req, 'recorte', ['brasil']);
+        }
+
         // A geracao conversa com a internet e pode demorar.
         set_time_limit(0);
         ignore_user_abort(true);
 
-        $resultado = (new GeradorCartas())->gerar($quantidade, $categoria);
+        $resultado = (new GeradorCartas())->gerar($quantidade, $categoria, $recorte);
 
         return $this->ok($resultado);
     }

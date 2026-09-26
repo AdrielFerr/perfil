@@ -10,14 +10,16 @@ final class Partida extends Model
 {
     protected string $tabela = 'partidas';
 
-    public function criar(string $codigo, int $pontuacaoVitoria): int
+    /** @param array<int,string> $categorias temas escolhidos; vazio = todos */
+    public function criar(string $codigo, int $pontuacaoVitoria, array $categorias = []): int
     {
         $this->executar(
-            'INSERT INTO partidas (codigo, pontuacao_vitoria, dicas_reveladas, eliminados_carta)
-             VALUES (:codigo, :pontuacao, :dicas, :eliminados)',
+            'INSERT INTO partidas (codigo, pontuacao_vitoria, categorias, dicas_reveladas, eliminados_carta)
+             VALUES (:codigo, :pontuacao, :categorias, :dicas, :eliminados)',
             [
                 'codigo'     => $codigo,
                 'pontuacao'  => $pontuacaoVitoria,
+                'categorias' => json_encode(array_values($categorias)),
                 'dicas'      => '[]',
                 'eliminados' => '[]',
             ]
@@ -59,8 +61,21 @@ final class Partida extends Model
     {
         $partida['dicas_reveladas'] = $this->decodificarLista($partida['dicas_reveladas']);
         $partida['eliminados_carta'] = $this->decodificarLista($partida['eliminados_carta'] ?? null);
+        $partida['categorias'] = $this->decodificarTextos($partida['categorias'] ?? null);
 
         return $partida;
+    }
+
+    /** Mesma ideia da lista de numeros, mas guardando texto. */
+    private function decodificarTextos(mixed $bruto): array
+    {
+        if (is_array($bruto)) {
+            return array_values(array_map('strval', $bruto));
+        }
+
+        $lista = json_decode((string) $bruto, true);
+
+        return is_array($lista) ? array_values(array_map('strval', $lista)) : [];
     }
 
     private function decodificarLista(mixed $bruto): array

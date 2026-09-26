@@ -108,6 +108,7 @@ CREATE TABLE `partidas` (
   `id`                  INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `codigo`              CHAR(8)      NOT NULL COMMENT 'codigo publico da partida',
   `pontuacao_vitoria`   SMALLINT UNSIGNED NOT NULL DEFAULT 50,
+  `categorias`          JSON         NULL COMMENT 'temas escolhidos na criacao; vazio = todos',
   `status`              ENUM('em_andamento','encerrada') NOT NULL DEFAULT 'em_andamento',
   `carta_atual_id`      INT UNSIGNED NULL,
   `jogador_vez_id`      INT UNSIGNED NULL,

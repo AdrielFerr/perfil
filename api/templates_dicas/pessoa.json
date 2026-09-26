@@ -228,7 +228,7 @@
             "modelos": [
                 {
                     "texto": "Já fui indicado a este prêmio: {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 }
             ]
@@ -260,12 +260,12 @@
             "modelos": [
                 {
                     "texto": "Já vesti a camisa deste time: {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 },
                 {
                     "texto": "Joguei aqui: {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 }
             ]
@@ -404,7 +404,7 @@
             "modelos": [
                 {
                     "texto": "Já trabalhei nesta casa: {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 }
             ]

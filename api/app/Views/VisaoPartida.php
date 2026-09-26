@@ -24,6 +24,7 @@ final class VisaoPartida
                 'id'                  => (int) $partida['id'],
                 'codigo'              => $partida['codigo'],
                 'pontuacao_vitoria'   => (int) $partida['pontuacao_vitoria'],
+                'categorias'          => array_values($partida['categorias'] ?? []),
                 'status'              => $partida['status'],
                 'numero_carta'        => (int) $partida['numero_carta'],
                 'jogador_vez_id'      => $partida['jogador_vez_id'] !== null ? (int) $partida['jogador_vez_id'] : null,

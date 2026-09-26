@@ -37,8 +37,26 @@ final class PartidaController extends Controller
         );
 
         $jogadores = $this->validarJogadores($req->campoLista('jogadores'));
+        $categorias = $this->validarCategorias($req->campoLista('categorias'));
 
-        return $this->criado($this->regras->criar($jogadores, $pontuacao));
+        return $this->criado($this->regras->criar($jogadores, $pontuacao, $categorias));
+    }
+
+    /**
+     * Temas da partida. Lista vazia vale como "todos", que e o padrao.
+     *
+     * @return array<int,string>
+     */
+    private function validarCategorias(array $brutas): array
+    {
+        $validas = ['pessoa', 'lugar', 'ano', 'coisa'];
+        $escolhidas = array_values(array_unique(array_filter(
+            array_map(static fn ($c): string => is_string($c) ? trim($c) : '', $brutas),
+            static fn (string $c): bool => in_array($c, $validas, true)
+        )));
+
+        // Escolher as quatro e o mesmo que nao escolher nenhuma.
+        return count($escolhidas) === count($validas) ? [] : $escolhidas;
     }
 
     /** @return array<int,array{nome:string,cor:string,avatar:string}> */

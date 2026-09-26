@@ -1506,6 +1506,86 @@ a {
   cursor: not-allowed;
 }
 
+/* --------------------------------------------------------------------
+   Temas do baralho: quais categorias entram na partida
+   -------------------------------------------------------------------- */
+
+.linha-rotulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Acao secundaria discreta, sem peso de botao. */
+.botao-texto {
+  font-family: var(--fonte-titulo);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--carimbo);
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 1px;
+}
+
+.temas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.tema {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  min-height: var(--toque);
+  padding: 9px 11px;
+  border: var(--traco) dashed var(--tinta-clara);
+  border-radius: var(--raio);
+  background: transparent;
+  text-align: left;
+}
+
+/* Marcado vira carimbo da cor do tema, com a lombada cheia. */
+.tema--marcado {
+  border-style: solid;
+  border-color: var(--cor-tema, var(--tinta));
+  border-left-width: 8px;
+  background: var(--papel-claro);
+  box-shadow: 2px 2px 0 var(--cor-tema, var(--tinta));
+}
+
+.tema:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tema__icone {
+  font-size: 1.05rem;
+  line-height: 1.1;
+}
+
+.tema__nome {
+  font-family: var(--fonte-titulo);
+  font-size: 0.86rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tema--marcado .tema__nome {
+  color: var(--cor-tema, var(--tinta));
+}
+
+.tema__conta {
+  font-size: 0.72rem;
+  color: var(--texto-apagado);
+}
+
+@media (min-width: 560px) {
+  .temas { grid-template-columns: repeat(4, 1fr); }
+}
+
 /* =====================================================================
    Modal
    ===================================================================== */

@@ -265,7 +265,7 @@
             "modelos": [
                 {
                     "texto": "Quem me publicou foi {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 }
             ]

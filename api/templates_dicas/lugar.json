@@ -78,12 +78,12 @@
             "modelos": [
                 {
                     "texto": "Fico no continente {valor}.",
-                    "dificuldade": "dificil",
+                    "dificuldade": "media",
                     "formato": "texto"
                 },
                 {
                     "texto": "Quem quiser me visitar precisa ir para este continente: {valor}.",
-                    "dificuldade": "dificil",
+                    "dificuldade": "media",
                     "formato": "texto"
                 }
             ]
@@ -94,12 +94,12 @@
             "modelos": [
                 {
                     "texto": "Fico neste país: {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 },
                 {
                     "texto": "Meu país é {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 }
             ]
@@ -110,7 +110,7 @@
             "modelos": [
                 {
                     "texto": "Fico dentro desta região: {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 }
             ]
@@ -239,12 +239,12 @@
             "modelos": [
                 {
                     "texto": "Faço fronteira com {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 },
                 {
                     "texto": "Meu vizinho de porta é {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 }
             ]
@@ -271,7 +271,7 @@
             "modelos": [
                 {
                     "texto": "Tenho água por perto: {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 }
             ]
@@ -282,7 +282,7 @@
             "modelos": [
                 {
                     "texto": "Meu ponto mais alto é {valor}.",
-                    "dificuldade": "media",
+                    "dificuldade": "facil",
                     "formato": "texto"
                 }
             ]

@@ -44,6 +44,9 @@ final class GeradorCartas
     /** QIDs e anos ja tentados nesta execucao. */
     private array $jaTentados = [];
 
+    /** null = mundo todo; 'brasil' = so tema brasileiro. */
+    private ?string $recorte = null;
+
     public function __construct(
         ?WikidataClient $wikidata = null,
         ?WikipediaClient $wikipedia = null,
@@ -77,9 +80,16 @@ final class GeradorCartas
      *
      * @return array{geradas:int, pedidas:int, por_categoria:array<string,int>, registro:array<int,string>}
      */
-    public function gerar(int $quantidade, ?string $categoriaFixa = null): array
+    public function gerar(int $quantidade, ?string $categoriaFixa = null, ?string $recorte = null): array
     {
         $quantidade = max(1, min(50, $quantidade));
+        $this->recorte = $recorte;
+
+        // A carta de ANO nao tem recorte de pais: o ano e o mesmo no mundo todo.
+        if ($recorte !== null && $categoriaFixa === 'ano') {
+            $this->anotar('[ano] o recorte por pais nao se aplica a ano: gerando normal.');
+            $this->recorte = null;
+        }
 
         $ordem = $categoriaFixa !== null && $categoriaFixa !== ''
             ? [$categoriaFixa]
@@ -148,7 +158,11 @@ final class GeradorCartas
             return null;
         }
 
-        $minimoSitelinks = (int) Configuracao::obter('gerador.minimo_sitelinks', 40);
+        // Tema brasileiro tem menos artigo em outras Wikipedias que uma
+        // celebridade global, entao o piso de fama dele e outro.
+        $minimoSitelinks = $this->recorte === 'brasil'
+            ? (int) Configuracao::obter('gerador.minimo_sitelinks_brasil', 25)
+            : (int) Configuracao::obter('gerador.minimo_sitelinks', 40);
         $limite = (int) Configuracao::obter('gerador.candidatos_por_consulta', 60);
         $deslocamento = (int) Configuracao::obter('gerador.deslocamento_maximo', 0);
 
@@ -165,7 +179,8 @@ final class GeradorCartas
                 (string) $foco['qid'],
                 $minimoSitelinks,
                 $limite,
-                $deslocamento > 0 ? random_int(0, $deslocamento) : 0
+                $deslocamento > 0 ? random_int(0, $deslocamento) : 0,
+                $this->recorte
             );
 
             if ($linhas['ok'] === false) {

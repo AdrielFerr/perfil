@@ -87,12 +87,13 @@ export const api = {
   // Partida
   // -------------------------------------------------------------------
 
-  criarPartida: ({ jogadores, pontuacaoVitoria }) =>
+  criarPartida: ({ jogadores, pontuacaoVitoria, categorias = [] }) =>
     pedir('/partidas', {
       metodo: 'POST',
       corpo: {
         jogadores,
         pontuacao_vitoria: pontuacaoVitoria,
+        categorias,
       },
     }),
 

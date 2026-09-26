@@ -71,7 +71,12 @@ return [
 
         // Minimo de sitelinks (quantas Wikipedias tem artigo sobre o tema).
         // Quanto maior, mais famoso o tema.
-        'minimo_sitelinks' => 120,
+        'minimo_sitelinks' => 180,
+
+        // Piso proprio do recorte brasileiro: Xuxa e Senna tem menos
+        // artigo em outras linguas que Mozart, e nem por isso sao menos
+        // conhecidos numa mesa brasileira.
+        'minimo_sitelinks_brasil' => 25,
 
         // Quantas linhas pular na lista ordenada por fama. Zero = so os topos.
         'deslocamento_maximo' => 0,
@@ -93,9 +98,9 @@ return [
 
         // Mistura de dificuldade desejada em cada carta de 20 dicas.
         'mistura_dificuldade' => [
-            'dificil' => 7,
+            'dificil' => 5,
             'media'   => 7,
-            'facil'   => 6,
+            'facil'   => 8,
         ],
 
         // Cartas geradas ja entram aprovadas? Se false, ficam 'pendente'

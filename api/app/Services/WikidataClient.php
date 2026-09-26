@@ -95,14 +95,21 @@ final class WikidataClient extends ClienteHttp
      *
      * @return array{ok:bool, linhas:array, erro:?string}
      */
+    /**
+     * $recorte escolhe a variante da consulta. 'brasil' carrega o
+     * arquivo <categoria>_lista_brasil.rq, que filtra por Brasil.
+     */
     public function listarCandidatos(
         string $categoria,
         string $foco,
         int $minimoSitelinks,
         int $limite,
-        int $deslocamento
+        int $deslocamento,
+        ?string $recorte = null
     ): array {
-        $sparql = $this->carregarConsulta($categoria . '_lista', [
+        $arquivo = $categoria . '_lista' . ($recorte === null || $recorte === '' ? '' : '_' . $recorte);
+
+        $sparql = $this->carregarConsulta($arquivo, [
             'FOCO'          => $this->limparQid($foco),
             'MIN_SITELINKS' => $minimoSitelinks,
             'LIMITE'        => $limite,

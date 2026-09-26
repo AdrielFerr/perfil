@@ -1,0 +1,24 @@
+# Candidatos da categoria PESSOA, recorte BRASIL.
+#
+# Mesma consulta de pessoa_lista.rq, com um filtro a mais: so entra quem
+# tem cidadania brasileira (P27 = Q155). Como brasileiro costuma ter menos
+# artigo em outras Wikipedias que uma celebridade global, este recorte roda
+# com um minimo de sitelinks proprio, bem mais baixo.
+#
+# Marcadores trocados pelo PHP: %FOCO% %MIN_SITELINKS% %LIMITE% %DESLOCAMENTO%
+SELECT ?item ?itemLabel ?artigo ?sitelinks WHERE {
+  ?item wdt:P31 wd:Q5 ;
+        wdt:P106 wd:%FOCO% ;
+        wdt:P27 wd:Q155 ;
+        wikibase:sitelinks ?sitelinks .
+  FILTER(?sitelinks >= %MIN_SITELINKS%)
+
+  # Regra 34: so entra quem tem artigo na Wikipedia em portugues.
+  ?artigo schema:about ?item ;
+          schema:isPartOf <https://pt.wikipedia.org/> .
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt,pt-br,en". }
+}
+ORDER BY DESC(?sitelinks)
+LIMIT %LIMITE%
+OFFSET %DESLOCAMENTO%

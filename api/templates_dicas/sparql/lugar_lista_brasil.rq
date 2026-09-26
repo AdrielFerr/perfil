@@ -1,0 +1,20 @@
+# Candidatos da categoria LUGAR, recorte BRASIL.
+#
+# Lugar que fica no Brasil (P17 = Q155). Serve para cidade, rio, montanha,
+# praia, atracao turistica: tudo que a mesa reconhece por estar aqui.
+#
+# Marcadores trocados pelo PHP: %FOCO% %MIN_SITELINKS% %LIMITE% %DESLOCAMENTO%
+SELECT ?item ?itemLabel ?artigo ?sitelinks WHERE {
+  ?item wdt:P31 wd:%FOCO% ;
+        wdt:P17 wd:Q155 ;
+        wikibase:sitelinks ?sitelinks .
+  FILTER(?sitelinks >= %MIN_SITELINKS%)
+
+  ?artigo schema:about ?item ;
+          schema:isPartOf <https://pt.wikipedia.org/> .
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt,pt-br,en". }
+}
+ORDER BY DESC(?sitelinks)
+LIMIT %LIMITE%
+OFFSET %DESLOCAMENTO%

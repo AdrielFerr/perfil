@@ -67,7 +67,8 @@ return [
         'endpoint_wikipedia' => 'https://pt.wikipedia.org/api/rest_v1/page/summary/',
 
         // Quanto maior, mais famoso o tema sorteado.
-        'minimo_sitelinks'    => (int) $env('PERFIL_MINIMO_SITELINKS', '120'),
+        'minimo_sitelinks'        => (int) $env('PERFIL_MINIMO_SITELINKS', '180'),
+        'minimo_sitelinks_brasil' => (int) $env('PERFIL_MINIMO_SITELINKS_BR', '25'),
 
         // Quantas linhas pular na lista ordenada por fama. Zero = so os topos.
         'deslocamento_maximo' => (int) $env('PERFIL_DESLOCAMENTO', '0'),
@@ -82,9 +83,9 @@ return [
         'candidatos_por_consulta' => (int) $env('PERFIL_CANDIDATOS', '120'),
 
         'mistura_dificuldade' => [
-            'dificil' => (int) $env('PERFIL_MIX_DIFICIL', '7'),
+            'dificil' => (int) $env('PERFIL_MIX_DIFICIL', '5'),
             'media'   => (int) $env('PERFIL_MIX_MEDIA', '7'),
-            'facil'   => (int) $env('PERFIL_MIX_FACIL', '6'),
+            'facil'   => (int) $env('PERFIL_MIX_FACIL', '8'),
         ],
 
         'aprovar_automaticamente' => $env('PERFIL_APROVAR_AUTO', 'false') === 'true',

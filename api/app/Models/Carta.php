@@ -122,14 +122,30 @@ final class Carta extends Model
      * Regra 51: nunca repete dentro da partida; entre partidas, prioriza
      * as menos jogadas (e desempata no sorteio).
      */
-    public function sortearParaPartida(int $partidaId, ?string $categoriaChave = null): ?array
+    /**
+     * @param string|array<int,string>|null $categoriaChave uma categoria, uma
+     *        lista delas (os temas escolhidos na criacao da partida) ou null
+     *        para sortear entre todas.
+     */
+    public function sortearParaPartida(int $partidaId, string|array|null $categoriaChave = null): ?array
     {
         $parametros = ['partida_id' => $partidaId];
         $filtroCategoria = '';
 
-        if ($categoriaChave !== null && $categoriaChave !== '') {
-            $filtroCategoria = ' AND cat.chave = :chave';
-            $parametros['chave'] = $categoriaChave;
+        $chaves = is_array($categoriaChave)
+            ? array_values(array_filter($categoriaChave, static fn ($c): bool => is_string($c) && $c !== ''))
+            : (($categoriaChave === null || $categoriaChave === '') ? [] : [$categoriaChave]);
+
+        if ($chaves !== []) {
+            // Um marcador nomeado por chave: PDO nao expande array sozinho.
+            $marcadores = [];
+
+            foreach ($chaves as $indice => $chave) {
+                $marcadores[] = ':chave' . $indice;
+                $parametros['chave' . $indice] = $chave;
+            }
+
+            $filtroCategoria = ' AND cat.chave IN (' . implode(', ', $marcadores) . ')';
         }
 
         return $this->buscarUm(
