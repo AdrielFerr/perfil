@@ -1,0 +1,39 @@
+# Fatos de UMA coisa. Marcador: %QID%
+# Cobre objeto, invencao, filme, serie, jogo, disco, livro e obra de arte.
+SELECT ?p ?valor ?valorLabel WHERE {
+  VALUES ?p {
+    wdt:P31    # tipo
+    wdt:P279   # subclasse de
+    wdt:P61    # descobridor ou inventor
+    wdt:P170   # criador
+    wdt:P571   # data de criacao
+    wdt:P577   # data de lancamento
+    wdt:P495   # pais de origem
+    wdt:P176   # fabricante
+    wdt:P186   # material
+    wdt:P366   # para que serve
+    wdt:P57    # diretor
+    wdt:P58    # roteirista
+    wdt:P50    # autor
+    wdt:P123   # editora
+    wdt:P136   # genero
+    wdt:P178   # desenvolvedor
+    wdt:P400   # plataforma
+    wdt:P161   # elenco
+    wdt:P86    # trilha sonora
+    wdt:P272   # produtora
+    wdt:P364   # idioma original
+    wdt:P2047  # duracao
+    wdt:P840   # onde a historia se passa
+    wdt:P921   # assunto principal
+    wdt:P275   # licenca
+    wdt:P287   # projetista
+    wdt:P527   # feito destas partes
+    wdt:P1411  # indicacoes
+    wdt:P166   # premios
+    wdt:P144   # inspirado em
+  }
+  wd:%QID% ?p ?valor .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt,pt-br,en". }
+}
+LIMIT 250

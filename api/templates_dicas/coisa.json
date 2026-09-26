@@ -1,0 +1,565 @@
+{
+    "categoria": "coisa",
+    "_leia_me": [
+        "Categoria guarda-chuva: objeto, invencao, filme, comida, jogo, obra de arte.",
+        "formato: texto | ano | decada | seculo | idade_aproximada"
+    ],
+    "focos": [
+        {
+            "qid": "Q11424",
+            "nome": "filme"
+        },
+        {
+            "qid": "Q7889",
+            "nome": "jogo eletronico"
+        },
+        {
+            "qid": "Q2095",
+            "nome": "alimento"
+        },
+        {
+            "qid": "Q34379",
+            "nome": "instrumento musical"
+        },
+        {
+            "qid": "Q42889",
+            "nome": "veiculo"
+        },
+        {
+            "qid": "Q7725634",
+            "nome": "obra literaria"
+        },
+        {
+            "qid": "Q3305213",
+            "nome": "pintura"
+        },
+        {
+            "qid": "Q178561",
+            "nome": "batalha"
+        },
+        {
+            "qid": "Q15416",
+            "nome": "programa de televisao"
+        },
+        {
+            "qid": "Q482994",
+            "nome": "album"
+        },
+        {
+            "qid": "Q5398426",
+            "nome": "serie de televisao"
+        },
+        {
+            "qid": "Q1002954",
+            "nome": "formula 1"
+        }
+    ],
+    "propriedades": {
+        "P31": {
+            "chave": "tipo",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Sou uma coisa do tipo: {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Num catálogo, eu entraria como {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P279": {
+            "chave": "subclasse",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Pertenço a esta família: {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P61": {
+            "chave": "inventor",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem me inventou foi {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Devo minha existência a {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P170": {
+            "chave": "criador",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu criador foi {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Saí das mãos de {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P571": {
+            "chave": "criacao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Surgi nos anos {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "decada"
+                },
+                {
+                    "texto": "Apareci no século {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "seculo"
+                },
+                {
+                    "texto": "Já existo há mais de {valor} anos.",
+                    "dificuldade": "dificil",
+                    "formato": "idade_aproximada"
+                }
+            ]
+        },
+        "P495": {
+            "chave": "origem",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Venho deste país: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Minha origem é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P176": {
+            "chave": "fabricante",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem me fabrica é {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Saio da linha de produção de {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P186": {
+            "chave": "material",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Sou feito de {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Meu material principal é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P366": {
+            "chave": "uso",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Sirvo para isto: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Meu uso mais comum é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P527": {
+            "chave": "partes",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Tenho isto dentro de mim: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P57": {
+            "chave": "diretor",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem me dirigiu foi {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P50": {
+            "chave": "autor",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem me escreveu foi {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Minha autoria é de {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P161": {
+            "chave": "elenco",
+            "max_dicas": 2,
+            "modelos": [
+                {
+                    "texto": "No meu elenco aparece {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P86": {
+            "chave": "trilha",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Minha trilha sonora é de {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P123": {
+            "chave": "editora",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem me publicou foi {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P178": {
+            "chave": "desenvolvedor",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem me desenvolveu foi {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P400": {
+            "chave": "plataforma",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Rodo nesta plataforma: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P136": {
+            "chave": "genero",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu gênero é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Quem gosta de {valor} costuma gostar de mim.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P275": {
+            "chave": "licenca",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Minha licença de uso é {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P287": {
+            "chave": "projetista",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem me projetou foi {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P577": {
+            "chave": "lancamento",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Fui lançado nos anos {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "decada"
+                },
+                {
+                    "texto": "Estreei no século {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "seculo"
+                },
+                {
+                    "texto": "Já estou por aí há mais de {valor} anos.",
+                    "dificuldade": "dificil",
+                    "formato": "idade_aproximada"
+                }
+            ]
+        },
+        "P58": {
+            "chave": "roteirista",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu roteiro é de {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P272": {
+            "chave": "produtora",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem me produziu foi {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P364": {
+            "chave": "idioma_original",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu idioma original é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P2047": {
+            "chave": "duracao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Duro {valor} minutos.",
+                    "dificuldade": "media",
+                    "formato": "faixa_duracao"
+                }
+            ]
+        },
+        "P840": {
+            "chave": "cenario",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Minha história se passa em {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P921": {
+            "chave": "assunto",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Falo sobre isto: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P1411": {
+            "chave": "indicacao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Já fui indicado a este prêmio: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P166": {
+            "chave": "premio",
+            "max_dicas": 2,
+            "modelos": [
+                {
+                    "texto": "Ganhei este prêmio: {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Tenho esta honraria na conta: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P144": {
+            "chave": "inspiracao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Nasci inspirado em {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        }
+    },
+    "derivadas": [
+        {
+            "chave": "muitos_materiais",
+            "condicao": "tem_varios_P186",
+            "modelos": [
+                {
+                    "texto": "Não sou feito de um material só.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "sem_fabricante",
+            "condicao": "sem_P176",
+            "modelos": [
+                {
+                    "texto": "Não saio de nenhuma fábrica em especial.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "elenco_grande",
+            "condicao": "tem_varios_P161",
+            "modelos": [
+                {
+                    "texto": "Tem bastante gente conhecida no meu elenco.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "sem_criador",
+            "condicao": "sem_P170",
+            "modelos": [
+                {
+                    "texto": "Não dá para apontar um criador só para mim.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "premiado",
+            "condicao": "tem_P166",
+            "modelos": [
+                {
+                    "texto": "Já levei prêmio para casa.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "sem_premio",
+            "condicao": "sem_P166",
+            "modelos": [
+                {
+                    "texto": "Nunca ganhei prêmio nenhum.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "tem_elenco",
+            "condicao": "tem_P161",
+            "modelos": [
+                {
+                    "texto": "Tenho gente atuando em mim.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        }
+    ],
+    "genericas": [
+        {
+            "texto": "Não sou pessoa, não sou lugar e não sou ano.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Muita gente já ouviu falar de mim.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Tenho nome próprio e entrada em enciclopédia.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Já fui assunto de conversa em mesa de bar.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Sou conhecido em mais de um país.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Alguém precisou me criar: não surgi sozinho.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Dá para me descrever em uma frase curta.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Meu nome aparece escrito em mais de um idioma por aí.",
+            "dificuldade": "dificil"
+        }
+    ]
+}

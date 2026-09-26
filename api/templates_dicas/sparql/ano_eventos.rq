@@ -1,0 +1,15 @@
+# Acontecimentos marcantes de um ano (regra 35d).
+# Marcadores: %ANO% %PROXIMO_ANO% %MIN_SITELINKS% %LIMITE%
+#
+# O filtro por faixa de data usa o indice do Wikidata e e bem mais
+# rapido do que FILTER(YEAR(?data) = ...).
+SELECT ?item ?itemLabel ?sitelinks WHERE {
+  ?item wdt:P585 ?data ;
+        wikibase:sitelinks ?sitelinks .
+  FILTER(?data >= "%ANO%-01-01T00:00:00Z"^^xsd:dateTime)
+  FILTER(?data <  "%PROXIMO_ANO%-01-01T00:00:00Z"^^xsd:dateTime)
+  FILTER(?sitelinks >= %MIN_SITELINKS%)
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt,pt-br,en". }
+}
+ORDER BY DESC(?sitelinks)
+LIMIT %LIMITE%

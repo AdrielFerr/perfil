@@ -1,0 +1,38 @@
+# Fatos de UM lugar. Marcador: %QID%
+SELECT ?p ?valor ?valorLabel WHERE {
+  VALUES ?p {
+    wdt:P31    # tipo (pais, cidade, rio, montanha...)
+    wdt:P17    # pais
+    wdt:P30    # continente
+    wdt:P1082  # populacao
+    wdt:P2046  # area
+    wdt:P2044  # altitude
+    wdt:P2043  # comprimento
+    wdt:P36    # capital
+    wdt:P37    # idioma oficial
+    wdt:P38    # moeda
+    wdt:P47    # faz fronteira com
+    wdt:P571   # fundacao / criacao
+    wdt:P206   # fica perto deste corpo d agua
+    wdt:P610   # ponto mais alto
+    wdt:P1376  # e capital de
+    wdt:P131   # fica dentro de (estado, regiao)
+    wdt:P138   # recebeu o nome de
+    wdt:P84    # arquiteto
+    wdt:P1435  # tombamento / patrimonio
+    wdt:P421   # fuso horario
+    wdt:P361   # faz parte de
+    wdt:P1549  # como se chama quem e daqui
+    wdt:P2936  # lingua falada por aqui
+    wdt:P35    # chefe de estado
+    wdt:P6     # chefe de governo
+    wdt:P122   # forma de governo
+    wdt:P463   # participa destas organizacoes
+    wdt:P41    # bandeira
+    wdt:P190   # cidade-irma
+    wdt:P1622  # lado da estrada em que se dirige
+  }
+  wd:%QID% ?p ?valor .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt,pt-br,en". }
+}
+LIMIT 250

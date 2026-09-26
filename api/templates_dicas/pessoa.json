@@ -1,0 +1,630 @@
+{
+    "categoria": "pessoa",
+    "_leia_me": [
+        "Cada propriedade do Wikidata vira uma ou mais frases em primeira pessoa.",
+        "dificuldade: 'dificil' = dica vaga, 'media' = ajuda, 'facil' = quase entrega.",
+        "formato: como o valor e transformado antes de entrar na frase.",
+        "  texto | ano | decada | seculo | faixa_altura | idade_aproximada",
+        "max_dicas: quantas dicas diferentes essa propriedade pode gerar na mesma carta.",
+        "Pode editar, apagar e acrescentar modelos a vontade."
+    ],
+    "focos": [
+        {
+            "qid": "Q937857",
+            "nome": "futebolista"
+        },
+        {
+            "qid": "Q33999",
+            "nome": "ator ou atriz"
+        },
+        {
+            "qid": "Q177220",
+            "nome": "cantor ou cantora"
+        },
+        {
+            "qid": "Q36180",
+            "nome": "escritor ou escritora"
+        },
+        {
+            "qid": "Q639669",
+            "nome": "musico"
+        },
+        {
+            "qid": "Q82955",
+            "nome": "politico"
+        },
+        {
+            "qid": "Q901",
+            "nome": "cientista"
+        },
+        {
+            "qid": "Q1028181",
+            "nome": "pintor"
+        },
+        {
+            "qid": "Q2526255",
+            "nome": "cineasta"
+        },
+        {
+            "qid": "Q3242115",
+            "nome": "piloto de automovel"
+        },
+        {
+            "qid": "Q10833314",
+            "nome": "tenista"
+        },
+        {
+            "qid": "Q3665646",
+            "nome": "jogador de basquete"
+        }
+    ],
+    "propriedades": {
+        "P21": {
+            "chave": "sexo",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu sexo é {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "No registro, sou do sexo {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P106": {
+            "chave": "profissao",
+            "max_dicas": 2,
+            "modelos": [
+                {
+                    "texto": "Minha profissão é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Trabalhei como {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Ganhei a vida assim: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Se perguntarem o que eu faço, a resposta é: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P27": {
+            "chave": "nacionalidade",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Minha nacionalidade: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Meu passaporte é deste país: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Sou cidadão deste país: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P569": {
+            "chave": "nascimento",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Nasci nos anos {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "decada"
+                },
+                {
+                    "texto": "Vim ao mundo na década de {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "decada"
+                },
+                {
+                    "texto": "Nasci no século {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "seculo"
+                },
+                {
+                    "texto": "Meu nascimento foi há mais de {valor} anos.",
+                    "dificuldade": "dificil",
+                    "formato": "idade_aproximada"
+                }
+            ]
+        },
+        "P19": {
+            "chave": "local_nascimento",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Nasci em {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Minha cidade natal é {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P570": {
+            "chave": "morte",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Já não estou entre os vivos: parti nos anos {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "decada"
+                },
+                {
+                    "texto": "Morri no século {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "seculo"
+                },
+                {
+                    "texto": "Minha história terminou na década de {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "decada"
+                }
+            ]
+        },
+        "P20": {
+            "chave": "local_morte",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meus últimos dias foram em {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Morri em {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P166": {
+            "chave": "premio",
+            "max_dicas": 2,
+            "modelos": [
+                {
+                    "texto": "Tenho este prêmio na estante: {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Já fui premiado com: {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Um reconhecimento que recebi: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P1411": {
+            "chave": "indicacao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Já fui indicado a este prêmio: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P800": {
+            "chave": "obra",
+            "max_dicas": 2,
+            "modelos": [
+                {
+                    "texto": "Uma obra minha: {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Fiquei conhecido por: {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Se você me conhece, provavelmente é por: {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P54": {
+            "chave": "clube",
+            "max_dicas": 2,
+            "modelos": [
+                {
+                    "texto": "Já vesti a camisa deste time: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Joguei aqui: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P413": {
+            "chave": "posicao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Minha posição em campo é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Jogo na posição de {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P463": {
+            "chave": "membro_de",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Faço parte deste grupo: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Sou membro de: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P26": {
+            "chave": "conjuge",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Fui casado com {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Meu par na vida foi {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P2048": {
+            "chave": "altura",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Minha altura fica {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "faixa_altura"
+                },
+                {
+                    "texto": "De pé, eu fico {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "faixa_altura"
+                }
+            ]
+        },
+        "P69": {
+            "chave": "formacao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Estudei aqui: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Passei pelos bancos desta instituição: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P1303": {
+            "chave": "instrumento",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Toco {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Meu instrumento é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P136": {
+            "chave": "genero",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu estilo é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Trabalho neste gênero: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P39": {
+            "chave": "cargo",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Já ocupei este cargo: {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Um posto que foi meu: {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P108": {
+            "chave": "empregador",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Já trabalhei nesta casa: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P641": {
+            "chave": "esporte",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu esporte é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Suei a camisa neste esporte: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P103": {
+            "chave": "lingua_materna",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Aprendi a falar em {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Minha língua materna é {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P551": {
+            "chave": "residencia",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Já morei em {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Botei meu endereço em {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P937": {
+            "chave": "local_trabalho",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu trabalho me levou para {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P512": {
+            "chave": "titulo",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Tenho este título acadêmico: {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P140": {
+            "chave": "religiao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Fui criado nesta religião: {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P1344": {
+            "chave": "evento",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Estive presente nisto: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P184": {
+            "chave": "orientador",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem me orientou foi {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        }
+    },
+    "derivadas": [
+        {
+            "chave": "ja_morreu",
+            "condicao": "tem_P570",
+            "modelos": [
+                {
+                    "texto": "Eu já não estou mais neste mundo.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Minha história já tem ponto final.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "ainda_vivo",
+            "condicao": "sem_P570",
+            "modelos": [
+                {
+                    "texto": "Pelo que consta, eu ainda estou por aqui.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Ainda não virei passado.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "muitas_profissoes",
+            "condicao": "tem_varios_P106",
+            "modelos": [
+                {
+                    "texto": "Não me resumo a uma profissão só: tenho mais de uma.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "muitos_premios",
+            "condicao": "tem_varios_P166",
+            "modelos": [
+                {
+                    "texto": "Minha estante de prêmios tem mais de um troféu.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "rodou_clubes",
+            "condicao": "tem_varios_P54",
+            "modelos": [
+                {
+                    "texto": "Não fiquei num time só: rodei por mais de um.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "estudou",
+            "condicao": "tem_P69",
+            "modelos": [
+                {
+                    "texto": "Passei por uma instituição de ensino conhecida.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "casou",
+            "condicao": "tem_P26",
+            "modelos": [
+                {
+                    "texto": "Já fui casado com alguém que também tem fama.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        }
+    ],
+    "genericas": [
+        {
+            "texto": "Tem gente que me conhece só pelo nome.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Já apareci em livro de história ou de escola.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Sou pessoa de carne e osso, não personagem inventado.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Meu nome já saiu em jornal mais de uma vez.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Tem artigo sobre mim em várias línguas.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Fiz fama longe da minha rua.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Muita gente já viu uma foto minha.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Se procurarem meu nome, acham em segundos.",
+            "dificuldade": "dificil"
+        }
+    ]
+}

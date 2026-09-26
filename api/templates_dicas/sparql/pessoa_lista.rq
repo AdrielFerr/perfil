@@ -1,0 +1,21 @@
+# Candidatos da categoria PESSOA.
+# Marcadores trocados pelo PHP: %FOCO% %MIN_SITELINKS% %LIMITE% %DESLOCAMENTO%
+#
+# %FOCO% e um QID de profissao (lista editavel em templates_dicas/pessoa.json).
+# Amarrar a consulta a uma profissao deixa ela rapida e ainda traz variedade,
+# porque o PHP sorteia uma profissao diferente a cada rodada.
+SELECT ?item ?itemLabel ?artigo ?sitelinks WHERE {
+  ?item wdt:P31 wd:Q5 ;
+        wdt:P106 wd:%FOCO% ;
+        wikibase:sitelinks ?sitelinks .
+  FILTER(?sitelinks >= %MIN_SITELINKS%)
+
+  # Regra 34: so entra quem tem artigo na Wikipedia em portugues.
+  ?artigo schema:about ?item ;
+          schema:isPartOf <https://pt.wikipedia.org/> .
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt,pt-br,en". }
+}
+ORDER BY DESC(?sitelinks)
+LIMIT %LIMITE%
+OFFSET %DESLOCAMENTO%

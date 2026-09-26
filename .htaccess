@@ -1,0 +1,38 @@
+# =====================================================================
+# Entrada do projeto no XAMPP com a pasta em htdocs/perfil.
+#
+# Com este arquivo o jogo abre em  http://localhost/perfil/
+# e a API responde em             http://localhost/perfil/api/public/...
+#
+# Nada e copiado de lugar nenhum: o build continua em frontend/dist/
+# e este arquivo apenas aponta os pedidos para la.
+# Se um dia publicar na raiz de um dominio, apague este arquivo e use
+# o VirtualHost descrito no README.
+# =====================================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /perfil/
+
+    # A API tem dono proprio (api/public/.htaccess cuida do resto).
+    RewriteRule ^api(/|$) - [L]
+
+    # Arquivo de verdade dentro do build e servido direto.
+    RewriteCond %{DOCUMENT_ROOT}/perfil/frontend/dist/$1 -f
+    RewriteRule ^(.+)$ frontend/dist/$1 [L]
+
+    # Qualquer outro caminho cai no React (/perfil/admin, /perfil/partida/12...).
+    RewriteRule ^ frontend/dist/index.html [L]
+</IfModule>
+
+# Fontes e dados nunca sao servidos: README, dump SQL, .env, configs.
+<FilesMatch "\.(sql|md|log|lock|ini|sh|bat|dist)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^(\.env.*|\.gitignore|composer\.json|package\.json|package-lock\.json|vite\.config\.js)$">
+    Require all denied
+</FilesMatch>
+
+Options -Indexes
+AddDefaultCharset UTF-8

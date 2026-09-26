@@ -1,0 +1,22 @@
+# Dependencias
+/api/vendor/
+/frontend/node_modules/
+
+# Build do front-end
+/frontend/dist/
+
+# Configuracao com senha e dados do banco
+/api/config/config.php
+
+# Cache HTTP e log de erros
+/api/cache/http/
+/api/cache/*.log
+
+# Variaveis locais do Vite
+/frontend/.env
+/frontend/.env.local
+
+# Lixo do sistema
+Thumbs.db
+desktop.ini
+.DS_Store

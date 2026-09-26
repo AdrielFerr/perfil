@@ -1,0 +1,96 @@
+# =====================================================================
+# Stack do jogo Perfil para Docker Swarm / Portainer.
+#
+# Antes de subir, troque o que esta marcado com TROQUE:
+#   - o dominio nas labels do Traefik
+#   - a imagem (usuario/organizacao do GitHub)
+#   - as senhas do MySQL
+#   - o hash da senha do painel /admin, gerado com:
+#       php -r "echo password_hash('suasenha', PASSWORD_DEFAULT);"
+#
+# O container cria as tabelas sozinho na primeira subida, so quando o
+# banco esta vazio. Depois disso ele nunca mais toca no schema.
+# =====================================================================
+version: "3.7"
+
+services:
+  perfil:
+    image: ghcr.io/TROQUE-usuario/perfil:latest   # TROQUE
+    networks:
+      - network_public
+    environment:
+      - TZ=America/Sao_Paulo
+
+      # --- Banco ---
+      - PERFIL_DB_HOST=perfilmysql
+      - PERFIL_DB_PORTA=3306
+      - PERFIL_DB_NOME=perfil
+      - PERFIL_DB_USUARIO=perfil
+      - PERFIL_DB_SENHA=TROQUE-senha-do-app      # TROQUE
+
+      # --- Ambiente ---
+      # 'producao' esconde a mensagem tecnica do erro no JSON.
+      - PERFIL_AMBIENTE=producao
+
+      # --- Painel /admin ---
+      - PERFIL_ADMIN_USUARIO=admin
+      - PERFIL_ADMIN_SENHA_HASH=TROQUE-hash-bcrypt   # TROQUE
+
+      # --- Gerador de cartas ---
+      # O Wikimedia exige um contato real no user agent.
+      - PERFIL_USER_AGENT=JogoPerfil/1.0 (https://TROQUE-dominio; contato@edidesk.com.br) PHP/curl
+      # Quanto maior o minimo de sitelinks, mais famoso o tema sorteado.
+      - PERFIL_MINIMO_SITELINKS=60
+      - PERFIL_MIX_DIFICIL=11
+      - PERFIL_MIX_MEDIA=6
+      - PERFIL_MIX_FACIL=3
+      - PERFIL_APROVAR_AUTO=false
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.perfil.rule=Host(`perfil.edidesk.com.br`)   # TROQUE
+        - traefik.http.routers.perfil.entrypoints=websecure
+        - traefik.http.routers.perfil.tls.certresolver=letsencryptresolver
+        - traefik.http.services.perfil.loadbalancer.server.port=80
+        - traefik.http.services.perfil.loadbalancer.passHostHeader=true
+
+  perfilmysql:
+    image: mysql:8.0
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      - network_public
+    environment:
+      - TZ=America/Sao_Paulo
+      - MYSQL_ROOT_PASSWORD=TROQUE-senha-root     # TROQUE
+      - MYSQL_DATABASE=perfil
+      - MYSQL_USER=perfil
+      - MYSQL_PASSWORD=TROQUE-senha-do-app        # TROQUE, igual a de cima
+    volumes:
+      - perfil_mysql:/var/lib/mysql
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1024M
+
+volumes:
+  perfil_mysql:
+
+networks:
+  network_public:
+    external: true
+    name: network_public

@@ -1,0 +1,42 @@
+# Fatos de UMA pessoa, ja com rotulo em portugues.
+# Marcador: %QID%
+#
+# Nao pedimos P735 (nome) nem P734 (sobrenome) de proposito:
+# entregariam a resposta.
+SELECT ?p ?valor ?valorLabel WHERE {
+  VALUES ?p {
+    wdt:P21    # sexo
+    wdt:P27    # nacionalidade
+    wdt:P106   # profissao
+    wdt:P569   # data de nascimento
+    wdt:P19    # local de nascimento
+    wdt:P570   # data de morte
+    wdt:P20    # local de morte
+    wdt:P166   # premios
+    wdt:P800   # obra famosa
+    wdt:P54    # clube / time
+    wdt:P463   # membro de (banda, academia)
+    wdt:P26    # conjuge
+    wdt:P2048  # altura
+    wdt:P69    # onde estudou
+    wdt:P1303  # instrumento que toca
+    wdt:P136   # genero artistico
+    wdt:P413   # posicao em campo
+    wdt:P39    # cargo ocupado
+    wdt:P108   # empregador
+    wdt:P1411  # indicacoes
+    wdt:P641   # esporte que pratica
+    wdt:P103   # lingua materna
+    wdt:P551   # onde mora ou morou
+    wdt:P937   # onde trabalhou
+    wdt:P512   # titulo academico
+    wdt:P140   # religiao
+    wdt:P1344  # participou deste evento
+    wdt:P184   # orientador
+    wdt:P1412  # idiomas que usa
+    wdt:P1303  # instrumento
+  }
+  wd:%QID% ?p ?valor .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt,pt-br,en". }
+}
+LIMIT 250

@@ -1,0 +1,13 @@
+# Rede de seguranca: se por engano o Apache apontar para api/ em vez de
+# api/public/, este arquivo bloqueia o acesso a app/, config/, bin/,
+# templates_dicas/, cache/ e vendor/.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(app|config|bin|templates_dicas|cache|vendor)(/|$) - [F,L]
+</IfModule>
+
+<FilesMatch "\.(json|log|cache|sql|md)$">
+    Require all denied
+</FilesMatch>
+
+Options -Indexes

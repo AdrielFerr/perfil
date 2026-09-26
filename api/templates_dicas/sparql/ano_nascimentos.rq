@@ -1,0 +1,13 @@
+# Gente famosa que nasceu naquele ano.
+# Marcadores: %ANO% %PROXIMO_ANO% %MIN_SITELINKS% %LIMITE%
+SELECT ?item ?itemLabel ?sitelinks WHERE {
+  ?item wdt:P569 ?data ;
+        wdt:P31 wd:Q5 ;
+        wikibase:sitelinks ?sitelinks .
+  FILTER(?data >= "%ANO%-01-01T00:00:00Z"^^xsd:dateTime)
+  FILTER(?data <  "%PROXIMO_ANO%-01-01T00:00:00Z"^^xsd:dateTime)
+  FILTER(?sitelinks >= %MIN_SITELINKS%)
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt,pt-br,en". }
+}
+ORDER BY DESC(?sitelinks)
+LIMIT %LIMITE%

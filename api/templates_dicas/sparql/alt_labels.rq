@@ -1,0 +1,14 @@
+# Regra 42: rotulos alternativos aceitos como resposta.
+# Marcador: %QID%
+SELECT DISTINCT ?alt WHERE {
+  {
+    wd:%QID% skos:altLabel ?alt .
+    FILTER(LANG(?alt) = "pt" || LANG(?alt) = "pt-br")
+  }
+  UNION
+  {
+    wd:%QID% rdfs:label ?alt .
+    FILTER(LANG(?alt) = "pt" || LANG(?alt) = "pt-br" || LANG(?alt) = "en")
+  }
+}
+LIMIT 40

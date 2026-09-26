@@ -1,0 +1,46 @@
+{
+  "name": "Perfil — jogo de adivinhação",
+  "short_name": "Perfil",
+  "description": "20 dicas, uma resposta secreta e o celular passando de mão em mão.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EFE4CD",
+  "theme_color": "#EFE4CD",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "./icone-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icone-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icone-mascara-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nova partida",
+      "short_name": "Jogar",
+      "url": "./novo-jogo"
+    },
+    {
+      "name": "Painel de cartas",
+      "short_name": "Painel",
+      "url": "./admin"
+    }
+  ]
+}

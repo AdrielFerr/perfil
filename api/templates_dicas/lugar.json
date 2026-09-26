@@ -1,0 +1,535 @@
+{
+    "categoria": "lugar",
+    "_leia_me": [
+        "formato: texto | ano | decada | seculo | faixa_populacao | faixa_area |",
+        "         faixa_altitude | faixa_comprimento",
+        "Numeros sempre viram faixa para a dica nao entregar o lugar (regra 38)."
+    ],
+    "focos": [
+        {
+            "qid": "Q6256",
+            "nome": "pais"
+        },
+        {
+            "qid": "Q1549591",
+            "nome": "cidade grande"
+        },
+        {
+            "qid": "Q5119",
+            "nome": "capital"
+        },
+        {
+            "qid": "Q4022",
+            "nome": "rio"
+        },
+        {
+            "qid": "Q8502",
+            "nome": "montanha"
+        },
+        {
+            "qid": "Q9430",
+            "nome": "oceano"
+        },
+        {
+            "qid": "Q8514",
+            "nome": "deserto"
+        },
+        {
+            "qid": "Q23442",
+            "nome": "ilha"
+        },
+        {
+            "qid": "Q570116",
+            "nome": "atracao turistica"
+        },
+        {
+            "qid": "Q23413",
+            "nome": "castelo"
+        },
+        {
+            "qid": "Q12280",
+            "nome": "ponte"
+        },
+        {
+            "qid": "Q33506",
+            "nome": "museu"
+        }
+    ],
+    "propriedades": {
+        "P31": {
+            "chave": "tipo",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Sou um lugar do tipo: {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "No mapa, eu apareço como {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P30": {
+            "chave": "continente",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Fico no continente {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Quem quiser me visitar precisa ir para este continente: {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P17": {
+            "chave": "pais",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Fico neste país: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Meu país é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P131": {
+            "chave": "regiao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Fico dentro desta região: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P1082": {
+            "chave": "populacao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Tenho {valor} habitantes.",
+                    "dificuldade": "dificil",
+                    "formato": "faixa_populacao"
+                },
+                {
+                    "texto": "Por aqui vivem {valor} pessoas.",
+                    "dificuldade": "dificil",
+                    "formato": "faixa_populacao"
+                }
+            ]
+        },
+        "P2046": {
+            "chave": "area",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Ocupo {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "faixa_area"
+                },
+                {
+                    "texto": "Minha área é de {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "faixa_area"
+                }
+            ]
+        },
+        "P2044": {
+            "chave": "altitude",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Fico {valor} acima do nível do mar.",
+                    "dificuldade": "dificil",
+                    "formato": "faixa_altitude"
+                },
+                {
+                    "texto": "Minha altitude é de {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "faixa_altitude"
+                }
+            ]
+        },
+        "P2043": {
+            "chave": "comprimento",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "De ponta a ponta eu tenho {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "faixa_comprimento"
+                }
+            ]
+        },
+        "P36": {
+            "chave": "capital",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Minha capital é {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "O centro do poder por aqui fica em {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P1376": {
+            "chave": "capital_de",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Eu sou a capital de {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P37": {
+            "chave": "idioma",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Aqui se fala {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Meu idioma oficial é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P38": {
+            "chave": "moeda",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem vem aqui gasta esta moeda: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Minha moeda é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P47": {
+            "chave": "fronteira",
+            "max_dicas": 2,
+            "modelos": [
+                {
+                    "texto": "Faço fronteira com {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Meu vizinho de porta é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P571": {
+            "chave": "fundacao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Fui fundado nos anos {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "decada"
+                },
+                {
+                    "texto": "Minha história começou no século {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "seculo"
+                }
+            ]
+        },
+        "P206": {
+            "chave": "agua",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Tenho água por perto: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P610": {
+            "chave": "ponto_alto",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu ponto mais alto é {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P138": {
+            "chave": "homenagem",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu nome é uma homenagem a {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P84": {
+            "chave": "arquiteto",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem me projetou foi {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P1435": {
+            "chave": "patrimonio",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Sou protegido por este título: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P421": {
+            "chave": "fuso",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu fuso horário é {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P361": {
+            "chave": "parte_de",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Faço parte disto: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P1549": {
+            "chave": "gentilico",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem é daqui se chama assim: {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P2936": {
+            "chave": "lingua_falada",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Nas ruas daqui se ouve {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P35": {
+            "chave": "chefe_estado",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Meu chefe de Estado é {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P6": {
+            "chave": "chefe_governo",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Quem governa por aqui é {valor}.",
+                    "dificuldade": "facil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P122": {
+            "chave": "governo",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Minha forma de governo é {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P463": {
+            "chave": "organizacao",
+            "max_dicas": 2,
+            "modelos": [
+                {
+                    "texto": "Sou membro desta organização: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                },
+                {
+                    "texto": "Tenho assento aqui: {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P190": {
+            "chave": "cidade_irma",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Sou cidade-irmã de {valor}.",
+                    "dificuldade": "media",
+                    "formato": "texto"
+                }
+            ]
+        },
+        "P1622": {
+            "chave": "mao_direcao",
+            "max_dicas": 1,
+            "modelos": [
+                {
+                    "texto": "Aqui se dirige por este lado da pista: {valor}.",
+                    "dificuldade": "dificil",
+                    "formato": "texto"
+                }
+            ]
+        }
+    },
+    "derivadas": [
+        {
+            "chave": "muitos_vizinhos",
+            "condicao": "tem_varios_P47",
+            "modelos": [
+                {
+                    "texto": "Tenho mais de um vizinho na fronteira.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "sem_fronteira",
+            "condicao": "sem_P47",
+            "modelos": [
+                {
+                    "texto": "Não divido fronteira de terra com ninguém.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "varios_idiomas",
+            "condicao": "tem_varios_P37",
+            "modelos": [
+                {
+                    "texto": "Por aqui se fala mais de um idioma oficial.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "sem_capital",
+            "condicao": "sem_P36",
+            "modelos": [
+                {
+                    "texto": "Eu não tenho capital: não é esse tipo de lugar.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "muitas_organizacoes",
+            "condicao": "tem_varios_P463",
+            "modelos": [
+                {
+                    "texto": "Participo de mais de uma organização internacional.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "tem_moeda",
+            "condicao": "tem_P38",
+            "modelos": [
+                {
+                    "texto": "Tenho moeda própria.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        }
+    ],
+    "genericas": [
+        {
+            "texto": "Dá para me achar no mapa.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Tenho coordenadas fixas: não saio do lugar.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Muita gente já ouviu falar de mim na escola.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Apareço em livro de geografia.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Tem foto minha em cartão-postal.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Turista gosta de tirar foto por aqui.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Meu nome está escrito em vários idiomas por aí.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Existo de verdade: não sou lugar de história inventada.",
+            "dificuldade": "dificil"
+        }
+    ]
+}

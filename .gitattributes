@@ -1,0 +1,30 @@
+# =====================================================================
+# Fim de linha.
+#
+# O projeto e escrito no Windows mas roda em container Linux. Sem esta
+# regra o Git troca LF por CRLF no diretorio de trabalho, e o
+# docker/entrada.sh chega no container com \r no fim do shebang:
+# o resultado e "bad interpreter: /bin/sh^M" e o container nao sobe.
+#
+# LF em tudo que e texto, nos dois lados.
+# =====================================================================
+
+* text=auto eol=lf
+
+# Scripts e configuracoes que o Linux le: LF sempre, sem excecao.
+*.sh              text eol=lf
+*.php             text eol=lf
+*.conf            text eol=lf
+*.yml             text eol=lf
+*.yaml            text eol=lf
+*.sql             text eol=lf
+Dockerfile        text eol=lf
+.htaccess         text eol=lf
+.dockerignore     text eol=lf
+
+# Binarios nao passam por conversao nenhuma.
+*.png   binary
+*.jpg   binary
+*.webp  binary
+*.woff2 binary
+*.ico   binary

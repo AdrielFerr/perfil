@@ -1,0 +1,63 @@
+# =====================================================================
+# .htaccess do FRONT-END (regra 5)
+# Vai junto no build: o Vite copia tudo de public/ para dist/.
+# Copie a pasta dist/ inteira para a pasta que o Apache serve.
+# =====================================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Deixe assim se o jogo abre em http://seu-host/ (o caso normal).
+    # Se voce copiou o build para uma subpasta, por exemplo
+    # htdocs/perfil/, troque por:  RewriteBase /perfil/
+    RewriteBase /
+
+    # A API tem dono proprio: nunca vira index.html.
+    RewriteRule ^api(/|$) - [L]
+
+    # Arquivo ou pasta de verdade e servido direto.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Qualquer outro caminho cai no React (/partida/12, /admin, /fim/3...).
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Tipos que o Apache antigo as vezes nao conhece.
+<IfModule mod_mime.c>
+    AddType application/manifest+json .webmanifest
+    AddType image/svg+xml .svg
+    AddType text/javascript .js
+    AddType font/woff2 .woff2
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml application/manifest+json
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Os arquivos de /assets tem hash no nome: podem ficar no cache.
+    <FilesMatch "\.(js|css|woff2|png|svg|jpg|webp)$">
+        ExpiresDefault "access plus 1 year"
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # O index.html e o service worker precisam ser sempre frescos,
+    # senao o celular fica preso numa versao velha do jogo.
+    <FilesMatch "^(index\.html|sw\.js|manifest\.webmanifest)$">
+        ExpiresDefault "access plus 0 seconds"
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+Options -Indexes
+AddDefaultCharset UTF-8

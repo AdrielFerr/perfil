@@ -1,0 +1,299 @@
+{
+    "categoria": "ano",
+    "_leia_me": [
+        "A categoria ANO nao usa consulta de lista: o PHP sorteia um ano dentro",
+        "do intervalo abaixo e busca no Wikidata o que aconteceu nele.",
+        "As dicas 'calculadas' saem de conta feita no PHP, sem consultar nada."
+    ],
+    "intervalo": {
+        "ano_minimo": 1850,
+        "ano_maximo": 2020
+    },
+    "consultas": {
+        "eventos": {
+            "arquivo": "ano_eventos",
+            "limite": 25,
+            "minimo_sitelinks": 90
+        },
+        "nascimentos": {
+            "arquivo": "ano_nascimentos",
+            "limite": 15,
+            "minimo_sitelinks": 110
+        },
+        "mortes": {
+            "arquivo": "ano_mortes",
+            "limite": 12,
+            "minimo_sitelinks": 110
+        },
+        "lancamentos": {
+            "arquivo": "ano_lancamentos",
+            "limite": 15,
+            "minimo_sitelinks": 90
+        }
+    },
+    "listas": {
+        "eventos": {
+            "max_dicas": 8,
+            "modelos": [
+                {
+                    "texto": "Neste ano aconteceu isto: {valor}.",
+                    "dificuldade": "facil"
+                },
+                {
+                    "texto": "Guardo na memória: {valor}.",
+                    "dificuldade": "facil"
+                },
+                {
+                    "texto": "Um marco do meu calendário: {valor}.",
+                    "dificuldade": "facil"
+                }
+            ]
+        },
+        "nascimentos": {
+            "max_dicas": 4,
+            "modelos": [
+                {
+                    "texto": "Nasceu gente famosa em mim: {valor}.",
+                    "dificuldade": "media"
+                },
+                {
+                    "texto": "Foi no meu tempo que {valor} veio ao mundo.",
+                    "dificuldade": "media"
+                }
+            ]
+        },
+        "mortes": {
+            "max_dicas": 3,
+            "modelos": [
+                {
+                    "texto": "Perdi alguém importante: {valor} morreu em mim.",
+                    "dificuldade": "media"
+                },
+                {
+                    "texto": "Foi no meu calendário que {valor} se despediu.",
+                    "dificuldade": "media"
+                }
+            ]
+        },
+        "lancamentos": {
+            "max_dicas": 4,
+            "modelos": [
+                {
+                    "texto": "Foi em mim que saiu: {valor}.",
+                    "dificuldade": "media"
+                },
+                {
+                    "texto": "Uma estreia do meu ano: {valor}.",
+                    "dificuldade": "media"
+                }
+            ]
+        }
+    },
+    "calculadas": [
+        {
+            "chave": "seculo",
+            "modelos": [
+                {
+                    "texto": "Pertenço ao século {seculo}.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Sou um ano do século {seculo}.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "decada",
+            "modelos": [
+                {
+                    "texto": "Sou da década de {decada}.",
+                    "dificuldade": "media"
+                },
+                {
+                    "texto": "Faço parte dos anos {decada}.",
+                    "dificuldade": "media"
+                }
+            ]
+        },
+        {
+            "chave": "bissexto",
+            "modelos": [
+                {
+                    "texto": "Sou um ano bissexto: tive 366 dias.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Meu fevereiro teve 29 dias.",
+                    "dificuldade": "dificil"
+                }
+            ],
+            "modelos_negativo": [
+                {
+                    "texto": "Não sou bissexto: meus dias foram 365.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Meu fevereiro acabou no dia 28.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "paridade",
+            "modelos": [
+                {
+                    "texto": "Sou um número par.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Se me dividirem por dois, não sobra nada.",
+                    "dificuldade": "dificil"
+                }
+            ],
+            "modelos_negativo": [
+                {
+                    "texto": "Sou um número ímpar.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Não dá para me dividir por dois sem sobrar um.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "soma_digitos",
+            "modelos": [
+                {
+                    "texto": "A soma dos meus quatro algarismos dá {soma}.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Somando meus dígitos um a um, chego a {soma}.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "ultimo_digito",
+            "modelos": [
+                {
+                    "texto": "Eu termino no algarismo {ultimo}.",
+                    "dificuldade": "media"
+                },
+                {
+                    "texto": "Meu último dígito é {ultimo}.",
+                    "dificuldade": "media"
+                }
+            ]
+        },
+        {
+            "chave": "distancia",
+            "modelos": [
+                {
+                    "texto": "Já faz mais de {distancia} anos que eu passei.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Estou a mais de {distancia} anos de distância de hoje.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "metade_seculo",
+            "modelos": [
+                {
+                    "texto": "Caio na primeira metade do meu século.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Estou na parte de cima do meu século.",
+                    "dificuldade": "dificil"
+                }
+            ],
+            "modelos_negativo": [
+                {
+                    "texto": "Caio na segunda metade do meu século.",
+                    "dificuldade": "dificil"
+                },
+                {
+                    "texto": "Estou na parte de baixo do meu século.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "multiplo_quatro",
+            "modelos": [
+                {
+                    "texto": "Sou múltiplo de quatro.",
+                    "dificuldade": "dificil"
+                }
+            ],
+            "modelos_negativo": [
+                {
+                    "texto": "Não sou múltiplo de quatro.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "olimpiada",
+            "modelos": [
+                {
+                    "texto": "Teve Jogos Olímpicos de verão no meu calendário.",
+                    "dificuldade": "media"
+                }
+            ],
+            "modelos_negativo": [
+                {
+                    "texto": "Não teve Jogos Olímpicos de verão em mim.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        },
+        {
+            "chave": "copa",
+            "modelos": [
+                {
+                    "texto": "Teve Copa do Mundo de futebol no meu calendário.",
+                    "dificuldade": "media"
+                }
+            ],
+            "modelos_negativo": [
+                {
+                    "texto": "Não rolou Copa do Mundo de futebol em mim.",
+                    "dificuldade": "dificil"
+                }
+            ]
+        }
+    ],
+    "genericas": [
+        {
+            "texto": "Sou um ano com quatro algarismos.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Tive doze meses, como todo mundo.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Já virei página do calendário faz tempo.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Tenho uma página só minha na Wikipédia.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Muita gente ainda estava viva quando eu passei.",
+            "dificuldade": "dificil"
+        },
+        {
+            "texto": "Vim depois do ano mil.",
+            "dificuldade": "dificil"
+        }
+    ]
+}

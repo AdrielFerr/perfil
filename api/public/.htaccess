@@ -1,0 +1,35 @@
+# Front controller da API (regra 9).
+# Tudo que nao for arquivo existente vai para index.php.
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Repare que NAO existe RewriteBase aqui. Sem ele o Apache descobre
+    # sozinho o prefixo certo, o que e o que funciona tanto com
+    # DocumentRoot apontado para esta pasta quanto com
+    # "Alias /api" apontando para ela.
+    #
+    # So mexa nisto se o seu Apache for antigo e as rotas nao pegarem.
+    # Nesse caso, descomente a linha abaixo com o prefixo que voce usa:
+    # RewriteBase /api
+
+    # Arquivo ou pasta que existe de verdade e servido direto.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # O resto cai no front controller.
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "no-referrer"
+</IfModule>
+
+# Nada de listar diretorio.
+Options -Indexes
+
+# UTF-8 por padrao.
+AddDefaultCharset UTF-8

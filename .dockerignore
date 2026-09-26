@@ -1,0 +1,23 @@
+# O que nunca entra no contexto de build.
+.git
+.github
+.gitignore
+
+# Dependencias e build sao refeitos dentro da imagem.
+frontend/node_modules
+frontend/dist
+api/vendor
+
+# Configuracao e cache locais do XAMPP.
+api/config/config.php
+api/cache
+frontend/.env
+frontend/.env.local
+
+# Documentacao e arquivos do sistema.
+README.md
+/.htaccess
+/stack.yml
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!--
+      viewport-fit=cover libera as areas seguras do iPhone (env(safe-area-inset-*)).
+      user-scalable=no evita o zoom por toque duplo no meio da partida.
+    -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no, maximum-scale=1"
+    />
+
+    <title>Perfil — jogo de adivinhação</title>
+    <meta name="description" content="Jogo de adivinhação no estilo Perfil: 20 dicas, uma resposta secreta e o celular passando de mão em mão." />
+
+    <meta name="theme-color" content="#EFE4CD" />
+    <meta name="color-scheme" content="light" />
+
+    <!-- Tela cheia quando instalado na tela inicial do iPhone -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Perfil" />
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/icone.svg" />
+    <link rel="apple-touch-icon" href="/icone-180.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="raiz"></div>
+    <noscript>Este jogo precisa de JavaScript ligado no navegador.</noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

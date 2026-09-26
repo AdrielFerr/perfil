@@ -1,0 +1,77 @@
+# =====================================================================
+# Compila a imagem do jogo e publica no GitHub Container Registry.
+#
+# Depois do push, se existir o segredo PORTAINER_WEBHOOK, o workflow
+# chama o webhook do servico no Portainer e o Swarm puxa a imagem nova.
+# O webhook sai em: Portainer > Stacks > perfil > servico > Webhook.
+#
+# Segredos usados (Settings > Secrets and variables > Actions):
+#   PORTAINER_WEBHOOK  (opcional) URL do webhook de atualizacao
+# O GITHUB_TOKEN ja vem pronto: nao precisa criar nada para o registry.
+# =====================================================================
+name: publicar imagem
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+env:
+  REGISTRO: ghcr.io
+  IMAGEM: ${{ github.repository }}
+
+jobs:
+  imagem:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Baixar o repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar o Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Entrar no registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRO }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Montar as etiquetas
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRO }}/${{ env.IMAGEM }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,format=short
+            type=ref,event=tag
+
+      - name: Compilar e publicar
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # O contexto 'secrets' nao vale dentro de 'if', entao o valor passa
+      # pelo env antes de ser testado.
+      - name: Avisar o Portainer
+        if: github.ref == 'refs/heads/main'
+        env:
+          WEBHOOK: ${{ secrets.PORTAINER_WEBHOOK }}
+        run: |
+          if [ -z "$WEBHOOK" ]; then
+            echo 'Sem PORTAINER_WEBHOOK configurado: pulei o aviso.'
+            exit 0
+          fi
+          curl -fsS -X POST "$WEBHOOK"

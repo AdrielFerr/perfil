@@ -1,0 +1,15 @@
+# Candidatos da categoria LUGAR.
+# %FOCO% e um QID de tipo de lugar (pais, cidade, rio, montanha, monumento...).
+SELECT ?item ?itemLabel ?artigo ?sitelinks WHERE {
+  ?item wdt:P31 wd:%FOCO% ;
+        wikibase:sitelinks ?sitelinks .
+  FILTER(?sitelinks >= %MIN_SITELINKS%)
+
+  ?artigo schema:about ?item ;
+          schema:isPartOf <https://pt.wikipedia.org/> .
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt,pt-br,en". }
+}
+ORDER BY DESC(?sitelinks)
+LIMIT %LIMITE%
+OFFSET %DESLOCAMENTO%
