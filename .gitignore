@@ -16,6 +16,9 @@
 /frontend/.env
 /frontend/.env.local
 
+# Cookie de sessao do painel, criado pelos testes com curl
+/.ck
+
 # Lixo do sistema
 Thumbs.db
 desktop.ini
