@@ -19,8 +19,17 @@ export default defineConfig(({ mode }) => {
   const alvoApi = env.VITE_API_ALVO || 'http://localhost'
 
   // Sempre com barra no inicio e no fim: o Vite exige esse formato.
-  const base = '/' + (env.VITE_BASE || '/').replace(/^\/+|\/+$/g, '') + '/'
-  const baseApi = '/' + (env.VITE_API_BASE || '/api').replace(/^\/+|\/+$/g, '')
+  //
+  // O caso da raiz precisa de tratamento proprio. Com VITE_BASE=/ a
+  // limpeza devolve string vazia e a conta virava '/' + '' + '/' = '//'.
+  // O Vite entao escrevia src="//assets/index.js" no HTML, que o
+  // navegador le como protocolo relativo: ele tenta resolver um host
+  // chamado "assets" e a pagina abre em branco com ERR_NAME_NOT_RESOLVED.
+  const caminhoBase = (env.VITE_BASE || '/').replace(/^\/+|\/+$/g, '')
+  const base = caminhoBase === '' ? '/' : '/' + caminhoBase + '/'
+
+  const caminhoApi = (env.VITE_API_BASE || '/api').replace(/^\/+|\/+$/g, '')
+  const baseApi = caminhoApi === '' ? '/api' : '/' + caminhoApi
 
   const proxy = {
     [baseApi]: {

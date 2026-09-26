@@ -17,6 +17,7 @@ perfil/
 ├── cartas.sql                    baralho pronto: cartas aprovadas com as 20 dicas
 ├── README.md                     este arquivo
 ├── .htaccess                     serve o jogo em /perfil/ no XAMPP local
+├── .gitattributes                força LF: com CRLF o entrada.sh não roda no container
 │
 ├── Dockerfile                    imagem: front compilado + API no mesmo Apache
 ├── .dockerignore                 o que fica fora do contexto de build
@@ -100,7 +101,9 @@ perfil/
 │   │       └── alt_labels.rq
 │   │
 │   ├── bin/
-│   │   └── gerar-cartas.php      script do Agendador de Tarefas
+│   │   ├── gerar-cartas.php      gera cartas pela linha de comando
+│   │   ├── preparar-banco.php    cria as tabelas e importa o baralho na subida
+│   │   └── exportar-cartas.php   regenera o cartas.sql com o que foi aprovado
 │   │
 │   └── cache/                    cache HTTP e log de erros
 │
